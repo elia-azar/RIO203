@@ -1,3 +1,41 @@
 List of TODOs
 
-Test Hello wolrd
+If you are using Windows:
+    Install VirtualBox
+    Install Ubuntu 18.04 image
+    Use Ubuntu for the project
+    Download git
+    For those working on the dashboard, dowload docker
+
+
+Overall:
+    Create Smart city with smart grid
+    Create 3 plans for energy consumption per household
+    Create 6 Households
+    Each household will consist of approx. 4-6 nodes (washing machine, lights, temperature, fridge, ...)
+    Create public services like smart trash/recycle bins
+    Each customer is affiliated to a household and can control his nodes, but not the other ones
+
+
+Fit-IOT group:
+    Do the tutorials sent by the professor
+    Create CoAP client for Actuation purposes (Force a node to change value)
+    Create CoAP client for Monitoring purposes (Send request for energy consumption of a node)
+    Create CoAP client for Sensing purposes (Send request to collect data of a specific sensor)
+
+RPi group:
+    Read the manual of RPi
+    Read the manual of Sunfounder and decide on what sensors should be used
+    Create a server on RPi to send data to client and receive orders from client
+    Create a client that sends request to RPi regarding actuation, monitoring and sensing
+
+Dashboard:
+    Learn how to use https://thingsboard.io/ (Follow tutorials on https://thingsboard.io/docs/guides/)
+    See if we can include nodes from Fit-IOT and RPi into the dashboard and manipulate them
+
+Database:
+    Learn how to use Postgres with a tutorial (Store data in tables, send request to collect data ...)
+
+
+AWS (not mandatory, depends on our progress):
+    Implement the dashboard on AWS
