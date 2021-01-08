@@ -1,0 +1,3 @@
+Finish the implementation of centrale
+Create a Docker container that will host a DB
+Create a Service to access the container and store data in the DB

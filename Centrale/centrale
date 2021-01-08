@@ -7,20 +7,24 @@ import _thread
 HOST = '127.0.0.1'
 PORT = 65432
 
+#TODO create a dict with (home_id, sensor_id) as keys
 IPV6_LIST = [
     "9181",
     "abcd",
     "1234"
 ]
 
+#TODO implement a new function to get data from all the nodes and store them in the DB
+
 command = "aiocoap-client "
 port = ":5683"
 
-
+#TODO implement this function
 def get_ipv6(home_id, sensor_id):
     #based on these values, return the right sensor from the IPV6_LIST
     return IPV6_LIST[0]
 
+#TODO implement http connection to rpi
 def multi_threaded_client(connection, condition):
     while condition[0]:
         data = connection.recv(2048)
@@ -59,7 +63,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as ServerSideSocket:
         print(str(e))
 
     print('Socket is listening..')
-    ServerSideSocket.listen(5)
+    ServerSideSocket.listen(10)
     condition = [True]
     while condition[0]:
         Client, address = ServerSideSocket.accept()
