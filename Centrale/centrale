@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+
+import subprocess
+import socket
+import _thread
+
+HOST = '127.0.0.1'
+PORT = 65432
+
+IPV6_LIST = [
+    "9181",
+    "abcd",
+    "1234"
+]
+
+command = "aiocoap-client "
+port = ":5683"
+
+
+def get_ipv6(home_id, sensor_id):
+    #based on these values, return the right sensor from the IPV6_LIST
+    return IPV6_LIST[0]
+
+def multi_threaded_client(connection, condition):
+    while condition[0]:
+        data = connection.recv(2048)
+        message = data.decode('utf-8')
+        result = ''
+        
+        if message == "close":
+            print("Closing connection")
+            break
+        elif message == "exit":
+            print("Closing server")
+            condition[0] = False
+            break
+
+        #Parse message
+        #message type: action/home_id/sensor_id/sensor/new_value
+        path = message.split("/")
+        # Get the value of a sensor
+        ipv6 = get_ipv6(path[1], path[2])
+        request = command + "coap://[2001:660:5307:3127::" + ipv6 + "]" + port
+        if path[0] == 'get':
+            request += "/sensors/" + path[3]
+            result = subprocess.check_output(request, shell=True)
+        elif path[0] == 'actuate':
+            # Change the value of a sensor
+            request += "actuate/sensors/" + path[3] + "/" + path[4]
+            result = subprocess.check_output(request, shell=True)
+
+        connection.sendall(str.encode(result))
+    connection.close()
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as ServerSideSocket:
+    try:
+        ServerSideSocket.bind((HOST, PORT))
+    except socket.error as e:
+        print(str(e))
+
+    print('Socket is listening..')
+    ServerSideSocket.listen(5)
+    condition = [True]
+    while condition[0]:
+        Client, address = ServerSideSocket.accept()
+        print('Connected to: ' + address[0] + ':' + str(address[1]))
+        _thread.start_new_thread(multi_threaded_client, (Client, condition, ))
+    ServerSideSocket.close()
