@@ -3,59 +3,118 @@
 import subprocess
 import socket
 import _thread
+import psycopg2
+from datetime import datetime
+import time
 
 HOST = '127.0.0.1'
 PORT = 65432
 
-#TODO create a dict with (home_id, sensor_id) as keys
-IPV6_LIST = [
-    "9181",
-    "abcd",
-    "1234"
-]
+CONDITION = [True]
 
-#TODO implement a new function to get data from all the nodes and store them in the DB
+# keys (home_id, sensor_id)
+IPV6_DICT = {
+    (0,1):"9181",
+    (0,2):"abcd",
+    (1,1):"54e2"
+}
 
+# keys sensor_id
+SENSORS_DICT = {
+    1:"temperature",
+    2:"light",
+    3:"pressure"
+}
+
+# function that gets data from all the nodes and stores them in the DB
+def update():
+    for (home_id, sensor_id) in IPV6_DICT.keys():
+        # Build the request and send it, then receive the response
+        ipv6 = IPV6_DICT.get((home_id, sensor_id))
+        request = command + "coap://[2001:660:5307:3127::" + ipv6 + "]" + port
+        request += "/sensors/" + SENSORS_DICT.get(SENSORS_DICT.get(sensor_id))
+        result = subprocess.check_output(request, shell=True)
+
+        # Update Database
+        date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        cur.execute("UPDATE sensors \
+        SET value = {}, \
+        timestamp = {}, \
+        WHERE home_id = {} AND sensor_id = {};".format(result, date, home_id, sensor_id))
+    return
+
+def update_5_min():
+    while CONDITION[0]:
+        update()
+        time.sleep(5*60)
+
+# Variables used to send coap requests
 command = "aiocoap-client "
 port = ":5683"
 
-#TODO implement this function
+# Connect to postgres DB
+conn = psycopg2.connect("dbname='postgres' user='postgres' host='127.0.0.1' password='postgres' port='5432'")
+
+# Open a cursor to perform database operations
+cur = conn.cursor()
+
+
 def get_ipv6(home_id, sensor_id):
-    #based on these values, return the right sensor from the IPV6_LIST
-    return IPV6_LIST[0]
+    #based on these values, return the right sensor from the IPV6_DICT
+    return IPV6_DICT.get((home_id, sensor_id))
 
 #TODO implement http connection to rpi
-def multi_threaded_client(connection, condition):
-    while condition[0]:
+def multi_threaded_client(connection):
+    while CONDITION[0]:
         data = connection.recv(2048)
+        if not data:
+            break
+        
         message = data.decode('utf-8')
         result = ''
-        
-        if message == "close":
-            print("Closing connection")
-            break
-        elif message == "exit":
+    
+        if message == "exit":
             print("Closing server")
-            condition[0] = False
+            CONDITION[0] = False
             break
 
         #Parse message
-        #message type: action/home_id/sensor_id/sensor/new_value
+        #message type: action/home_id/sensor_id/new_state
         path = message.split("/")
         # Get the value of a sensor
         ipv6 = get_ipv6(path[1], path[2])
         request = command + "coap://[2001:660:5307:3127::" + ipv6 + "]" + port
         if path[0] == 'get':
-            request += "/sensors/" + path[3]
+            # Build the request and send it, then receive the response
+            request += "/sensors/" + SENSORS_DICT.get(path[2])
             result = subprocess.check_output(request, shell=True)
+
+            # Updating value in the database
+            cur.execute("UPDATE sensors \
+            SET value = {} \
+            WHERE home_id = {} AND sensor_id = {};".format(result, path[1], path[2]))
+            print(cur.fetchall())
+
         elif path[0] == 'actuate':
             # Change the value of a sensor
-            request += "actuate/sensors/" + path[3] + "/" + path[4]
+            request += "actuate/sensors/" + SENSORS_DICT.get(path[2]) + "/" + path[3]
             result = subprocess.check_output(request, shell=True)
 
+            if result == "200":
+                # Updating value in the database
+                cur.execute("UPDATE sensors \
+                SET state = {} \
+                WHERE home_id = {} AND sensor_id = {};".format(path[4], path[1], path[2]))
+                print(cur.fetchall())
+
         connection.sendall(str.encode(result))
+
     connection.close()
 
+# Run a thread that will keep the Database up-to-date
+_thread.start_new_thread(update_5_min, ())
+
+# Multi-thread server that listens to at most 10 clients
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as ServerSideSocket:
     try:
         ServerSideSocket.bind((HOST, PORT))
@@ -64,9 +123,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as ServerSideSocket:
 
     print('Socket is listening..')
     ServerSideSocket.listen(10)
-    condition = [True]
-    while condition[0]:
+    while CONDITION[0]:
         Client, address = ServerSideSocket.accept()
         print('Connected to: ' + address[0] + ':' + str(address[1]))
-        _thread.start_new_thread(multi_threaded_client, (Client, condition, ))
+        _thread.start_new_thread(multi_threaded_client, (Client, ))
     ServerSideSocket.close()
