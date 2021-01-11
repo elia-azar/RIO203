@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import re
 import subprocess
 import socket
 import _thread
@@ -32,21 +33,28 @@ def update():
         # Build the request and send it, then receive the response
         ipv6 = IPV6_DICT.get((home_id, sensor_id))
         request = command + "coap://[2001:660:5307:3127::" + ipv6 + "]" + port
+
+        # Request to get current value
         request += "/sensors/" + SENSORS_DICT.get(SENSORS_DICT.get(sensor_id))
-        result = subprocess.check_output(request, shell=True)
+        value = subprocess.check_output(request, shell=True)
+
+        # Request to get current consumption
+        request += "/consumption"
+        consumption = subprocess.check_output(request, shell=True)
 
         # Update Database
         date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         cur.execute("UPDATE sensors \
         SET value = {}, \
+        consumption = {} \
         timestamp = {}, \
-        WHERE home_id = {} AND sensor_id = {};".format(result, date, home_id, sensor_id))
+        WHERE home_id = {} AND sensor_id = {};".format(value, consumption, date, home_id, sensor_id))
     return
 
-def update_5_min():
+def update_10_min():
     while CONDITION[0]:
         update()
-        time.sleep(5*60)
+        time.sleep(10*60)
 
 # Variables used to send coap requests
 command = "aiocoap-client "
@@ -149,7 +157,7 @@ def multi_threaded_client(connection):
     connection.close()
 
 # Run a thread that will keep the Database up-to-date
-_thread.start_new_thread(update_5_min, ())
+_thread.start_new_thread(update_10_min, ())
 
 # Multi-thread server that listens to at most 10 clients
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as ServerSideSocket:
