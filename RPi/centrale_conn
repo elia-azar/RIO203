@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+
+import socket
+import _thread
+
+HOST = ''
+PORT = 2727
+
+CONDITION = [True]
+
+# keys sensor_id
+SENSORS_DICT = {
+    1:"temperature",
+    2:"light",
+    3:"pressure"
+}
+
+def multi_threaded_client(connection):
+    while CONDITION[0]:
+        data = connection.recv(2048)
+        if not data:
+            break
+        
+        message = data.decode('utf-8')
+        result = ''
+    
+        if message == "exit":
+            print("Closing server")
+            CONDITION[0] = False
+            break
+
+        connection.sendall(str.encode(result))
+
+    connection.close()
+
+# Multi-thread server that listens to at most 10 clients
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as ServerSideSocket:
+    try:
+        ServerSideSocket.bind((HOST, PORT))
+    except socket.error as e:
+        print(str(e))
+
+    print('Socket is listening..')
+    ServerSideSocket.listen(3)
+    while CONDITION[0]:
+        Client, address = ServerSideSocket.accept()
+        print('Connected to: ' + address[0] + ':' + str(address[1]))
+        _thread.start_new_thread(multi_threaded_client, (Client, ))
+    ServerSideSocket.close()
