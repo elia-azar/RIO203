@@ -8,16 +8,9 @@ PORT = 2727
 
 CONDITION = [True]
 
-# keys sensor_id
-SENSORS_DICT = {
-    1:"temperature",
-    2:"light",
-    3:"pressure"
-}
-
 def multi_threaded_client(connection):
     while CONDITION[0]:
-        data = connection.recv(2048)
+        data = connection.recv(1024)
         if not data:
             break
         
@@ -28,6 +21,26 @@ def multi_threaded_client(connection):
             print("Closing server")
             CONDITION[0] = False
             break
+
+        path = message.split("/")
+        action = path[0]
+        sensor = path[1]
+        new_state = ""
+        if len(path) > 2:
+            new_state = path[2]
+
+        #TODO finish the implementation of this part
+        # Get the value of the sensor
+        if action == 'get':
+            if sensor == "temperature":
+                result = 1
+            result = 0
+        # Change state of a sensor/object
+        elif action == 'actuate':
+            result = 200
+        # Get the consumption of the monitored object
+        elif action == 'consumption':
+            result = 1
 
         connection.sendall(str.encode(result))
 
