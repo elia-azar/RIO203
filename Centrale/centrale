@@ -84,16 +84,32 @@ def multi_threaded_client(connection):
         # Get the value of a sensor
         ipv6 = get_ipv6(path[1], path[2])
         request = command + "coap://[2001:660:5307:3127::" + ipv6 + "]" + port
+        # Get the value of the sensor by sending a request
         if path[0] == 'get':
             # Build the request and send it, then receive the response
             request += "/sensors/" + SENSORS_DICT.get(path[2])
             result = subprocess.check_output(request, shell=True)
 
             # Updating value in the database
+            date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
             cur.execute("UPDATE sensors \
-            SET value = {} \
-            WHERE home_id = {} AND sensor_id = {};".format(result, path[1], path[2]))
-            print(cur.fetchall())
+            SET value = {}, \
+            time = {} \
+            WHERE home_id = {} AND sensor_id = {};".format(result, date, path[1], path[2]))
+            result = [result, date]
+        
+        # Get the value from the DB
+        elif path[0] == 'get_from_db':
+            # Select all the values in the database
+            cur.execute("SELECT home_id, sensor_id, value, time \
+            FROM sensors \
+            WHERE home_id = {} AND sensor_id = {};".format(path[1], path[2]))
+            result = cur.fetchall()
+        
+        elif path[0] == 'getall':
+            # Select all the values in the database
+            cur.execute("SELECT home_id, sensor_id, value, time FROM sensors;")
+            result = cur.fetchall()
 
         elif path[0] == 'actuate':
             # Change the value of a sensor
@@ -106,6 +122,27 @@ def multi_threaded_client(connection):
                 SET state = {} \
                 WHERE home_id = {} AND sensor_id = {};".format(path[4], path[1], path[2]))
                 print(cur.fetchall())
+        
+        elif path[0] == 'consumption':
+            # Build the request and send it, then receive the response
+            request += "/sensors/" + SENSORS_DICT.get(path[2]) + "/consumption"
+            result = subprocess.check_output(request, shell=True)
+
+            # Updating consumption in the database
+            date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+            cur.execute("UPDATE sensors \
+            SET consumption = {}, \
+            time = {} \
+            WHERE home_id = {} AND sensor_id = {};".format(result, date, path[1], path[2]))
+            result = [result, date]
+        
+        # Get the consumption from the DB
+        elif path[0] == 'consumption_from_db':
+            # Select all the consumptions in the database
+            cur.execute("SELECT home_id, sensor_id, consumption, time \
+            FROM sensors \
+            WHERE home_id = {} AND sensor_id = {};".format(path[1], path[2]))
+            result = cur.fetchall()
 
         connection.sendall(str.encode(result))
 
