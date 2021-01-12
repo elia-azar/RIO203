@@ -1,5 +1,4 @@
 import RPi.GPIO as GPIO
-import time
 
 STATES = {
     "RED": 0xFF0000,
