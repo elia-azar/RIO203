@@ -1,0 +1,267 @@
+2021-01-16 08:59:41,402 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 08:59:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 08:59:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:00:41,594 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:00:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:00:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:01:41,595 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:01:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:01:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:02:41,596 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:02:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:02:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:03:41,597 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:03:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:03:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:04:41,598 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:04:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:04:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:05:41,599 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:05:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:05:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:06:41,601 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:06:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:06:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:07:41,602 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:07:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:07:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:08:41,604 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:08:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:08:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:09:41,605 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:09:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:09:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:10:41,607 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:10:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:10:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:11:41,608 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:11:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:11:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:12:41,610 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:12:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:12:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:13:41,611 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:13:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:13:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:14:41,613 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:14:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:14:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:15:41,614 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:15:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:15:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:16:41,616 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:16:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:16:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:17:41,618 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:17:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:17:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:18:41,620 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:18:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:18:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:19:41,621 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:19:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:19:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:20:41,623 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:20:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:20:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:21:41,624 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:21:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:21:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:22:41,625 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:22:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:22:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:23:41,627 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:23:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:23:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:24:41,628 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:24:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:24:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:25:41,630 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:25:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:25:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:26:41,631 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:26:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:26:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:27:41,632 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:27:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:27:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:28:41,634 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:28:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:28:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:29:41,636 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:29:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:29:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:30:41,638 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:30:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:30:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:31:41,640 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:31:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:31:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:32:41,641 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:32:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:32:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:33:41,643 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:33:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:33:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:34:41,645 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:34:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:34:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:35:41,646 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:35:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:35:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:36:41,649 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:36:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:36:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:37:41,650 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:37:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:37:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:38:41,652 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:38:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:38:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:39:41,654 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:39:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:39:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:40:41,656 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:40:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:40:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:41:41,657 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:41:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:41:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:42:41,659 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:42:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:42:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:43:41,661 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:43:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:43:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:44:41,662 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:44:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:44:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:45:41,664 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:45:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:45:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:46:41,666 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:46:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:46:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:47:41,668 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:47:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:47:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:48:41,670 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:48:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:48:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:49:41,671 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:49:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:49:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:50:41,673 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:50:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:50:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:51:41,675 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:51:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:51:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:52:41,677 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:52:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:52:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:53:41,678 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:53:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:53:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:54:41,680 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:54:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:54:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:55:41,682 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:55:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:55:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:56:41,683 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:56:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:56:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:57:41,685 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:57:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:57:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:58:41,686 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:58:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:58:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:59:41,688 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 09:59:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 09:59:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:00:41,689 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:00:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:00:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:01:41,691 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:01:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:01:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:02:41,693 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:02:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:02:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:03:41,695 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:03:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:03:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:04:41,696 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:04:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:04:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:05:41,698 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:05:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:05:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:06:41,700 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:06:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:06:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:07:41,702 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:07:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:07:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:08:41,703 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:08:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:08:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:09:41,705 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:09:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:09:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:10:41,706 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:10:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:10:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:11:41,708 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:11:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:11:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:12:41,710 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:12:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:12:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:13:41,712 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:13:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:13:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:14:41,713 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:14:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:14:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:15:41,715 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:15:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:15:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:16:41,717 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:16:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:16:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:17:41,718 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:17:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:17:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:18:41,719 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:18:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:18:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:19:41,721 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:19:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:19:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:20:41,723 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:20:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:20:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:21:41,724 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:21:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:21:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:22:41,726 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:22:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:22:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:23:41,727 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:23:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:23:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:24:41,729 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:24:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:24:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:25:41,730 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:25:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:25:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:26:41,732 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:26:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:26:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:27:41,734 [queue-scheduler-11-thread-1] INFO  o.t.s.q.u.DefaultTbApiUsageClient - Report statistics for: 1 tenants
+2021-01-16 10:27:46,040 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]
+2021-01-16 10:27:46,112 [sql-log-1-thread-1] INFO  o.t.s.dao.sql.TbSqlBlockingQueue - Queue-2 [TS Latest] queueSize [0] totalAdded [2] totalSaved [2] totalFailed [0]

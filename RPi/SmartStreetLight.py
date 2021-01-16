@@ -19,7 +19,7 @@ def setup():
 def loop():
     while True:
         lux = ADC.read(0)
-        time.sleep(0.2)
+        time.sleep(1)
 
 def destroy():
     Destroy[0] = True

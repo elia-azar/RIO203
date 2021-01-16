@@ -16,6 +16,8 @@ def loop():
         time.sleep(0.25)
         if (0 == GPIO.input(ObstaclePin)):
             Obstacle[0] = True
+        else:
+            Obstacle[0] = False
 			
 
 def destroy():

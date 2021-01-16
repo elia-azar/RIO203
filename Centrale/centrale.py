@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import subprocess
 import socket
 import _thread
@@ -17,16 +15,16 @@ CONDITION = [True] # True means the server is up and running
 
 # keys (home_id, sensor_id)
 IPV6_DICT = {
-    (0,1):"9181",
-    (0,2):"abcd",
-    (1,1):"54e2"
+    (2,1):"b179",
+    (2,2):"b069",
+    (2,3):"b277"
 }
 
 # keys sensor_id
 SENSORS_DICT = {
     1:"temperature",
     2:"light",
-    3:"pressure"
+    3:"battery"
 }
 
 RPI_ALLOWED_ACTIONS = ['get', 'actuate', 'consumption']
@@ -155,8 +153,8 @@ def multi_threaded_client(connection):
         sensor_id = 100
         new_state = ""
         if len(path) > 2:
-            home_id = path[1]
-            sensor_id = path[2]
+            home_id = int(path[1])
+            sensor_id = int(path[2])
         if len(path) == 4:
             new_state = path[3]
         
@@ -233,12 +231,12 @@ def multi_threaded_client(connection):
             WHERE home_id = {} AND sensor_id = {};".format(home_id, sensor_id))
             result = cur.fetchall()
 
-        connection.sendall(str.encode(result))
+        connection.sendall(str.encode(str(result)))
 
     connection.close()
 
 # Run a thread that will keep the Database up-to-date
-_thread.start_new_thread(update_10_min, ())
+#_thread.start_new_thread(update_10_min, ())
 
 # Multi-thread server that listens to at most 10 clients
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as ServerSideSocket:

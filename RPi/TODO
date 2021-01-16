@@ -1,4 +1,4 @@
 Create a class for every object that is attached to a sensor
 Finish the implementation of centrale_conn
 Create at least 3 useful objects connected to the RPi
-For example: Smart garbage cans (Nothing/ ultrasonic), smart streetlights (Dual-core led and Light sensor), connected traffic lights (RGB LED and and IR Obstacle Sensor)
+For example: Smart garbage cans (Nothing/ ultrasonic), smart streetlights (Dual-core led and photoresistor), connected traffic lights (RGB LED and and IR Obstacle Sensor)
