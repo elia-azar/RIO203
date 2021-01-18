@@ -38,10 +38,10 @@ class RealTimeTrafficLight:
             while not Destroy[0]:
                 self.update_state("RED")
                 time.sleep(80)
-                self.update_state("YELLOW")
-                time.sleep(10)
                 self.update_state("GREEN")
                 time.sleep(50)
+                self.update_state("YELLOW")
+                time.sleep(10)
 
         _thread.start_new_thread(run, (self,))
 

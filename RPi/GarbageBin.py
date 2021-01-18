@@ -8,6 +8,8 @@ TRIG = 11
 ECHO = 12
 threshold = 10
 
+Destroy = [False]
+
 states = ["FULL","EMPTY"]
 
 def setup():
@@ -23,12 +25,11 @@ def distance():
     time.sleep(0.00001)
     GPIO.output(TRIG, 0)
 
-
     while GPIO.input(ECHO) == 0:
-            a = 0
+        a = 0
     time1 = time.time()
     while GPIO.input(ECHO) == 1:
-            a = 1
+        a = 1
     time2 = time.time()
 
     during = time2 - time1
@@ -52,14 +53,23 @@ def loop():
         time.sleep(10)
 
 
-def destroy(): 
-    destroy()
+def destroy():
+    # A revoir
+    GPIO.cleanup() # Release resource
 
 class GarbageBin:
     def __init__(self):
         setup()
         _thread.start_new_thread(loop, ()) # threading.Thread(target=loop).start() would be the best practise way of threading ? 
         self.state = "EMPTY"
+        
+        def run(self):
+            while not Destroy[0]:
+                self.update_state()
+                time.sleep(10 * 60)
+
+        _thread.start_new_thread(run, (self,))
+
 
     def update_state(self): # the states were defined earlier in the code. 
         if emptyspace < threshold:  
@@ -70,5 +80,6 @@ class GarbageBin:
 
     def kill(self):
         destroy()
+        Destroy[0] = True
         GPIO.cleanup()  # Release of the resource
 
