@@ -1,4 +1,3 @@
-Create a class for every object that is attached to a sensor
-Finish the implementation of centrale_conn
-Create at least 3 useful objects connected to the RPi
-For example: Smart garbage cans (Nothing/ ultrasonic), smart streetlights (Dual-core led and photoresistor), connected traffic lights (RGB LED and and IR Obstacle Sensor)
+Finish the implementation of RealTimeTrafficLight
+Check everything works with sensors on (Don't forget to change the value of the pins)
+check connectivity with the centrale node

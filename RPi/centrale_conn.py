@@ -52,7 +52,7 @@ def multi_threaded_client(connection):
         elif sensor == "garbage":
             result = garbage.get_consumption()
 
-    connection.sendall(str.encode(result))
+    connection.sendall(str.encode(str(result)))
     connection.close()
 
 
