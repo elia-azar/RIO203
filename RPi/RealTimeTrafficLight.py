@@ -1,3 +1,5 @@
+import sys
+sys.path.append(".")
 import RPi.GPIO as GPIO
 import time
 import _thread
@@ -48,6 +50,9 @@ class RealTimeTrafficLight:
     def update_state(self, new_state):
         self.state = new_state
         return self.light.update_state(new_state)
+    
+    def get_value(self):
+        return Obstacle[0]
     
     def get_state(self):
         return self.state

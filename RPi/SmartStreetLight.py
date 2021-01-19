@@ -1,4 +1,5 @@
-from datetime import datetime
+import sys
+sys.path.append(".")
 import _thread
 from StreetLight import StreetLight
 import PCF8591 as ADC
@@ -47,6 +48,9 @@ class SmartStreetLight:
         self.state = new_state
         return self.light.update_state(new_state)
     
+    def get_value(self):
+        return lux
+
     def get_state(self):
         return self.state
     

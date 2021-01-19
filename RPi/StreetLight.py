@@ -1,4 +1,3 @@
-from datetime import datetime
 import RPi.GPIO as GPIO
 
 
@@ -46,14 +45,12 @@ def destroy():
 class StreetLight:
     def __init__(self):
         setup()
-        self.date = datetime.now().strftime("%H:%M:%S")
         self.state = "OFF"
         setColor(STATES.get(self.state))
 
     def update_state(self, new_state):
         self.state = new_state
         setColor(STATES.get(self.state))
-        self.date = datetime.now().strftime("%H:%M:%S")
         return "200"
     
     def get_state(self):

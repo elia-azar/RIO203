@@ -1,5 +1,4 @@
 import RPi.GPIO as GPIO
-from datetime import datetime
 import time 
 import _thread 
 
@@ -70,13 +69,20 @@ class GarbageBin:
 
         _thread.start_new_thread(run, (self,))
 
+    def get_value(self):
+        return emptyspace
 
     def update_state(self): # the states were defined earlier in the code. 
         if emptyspace < threshold:  
             self.state = states[0]
         else:
             self.state = states[1]
-        
+    
+    def get_state(self):
+        return self.state
+    
+    def get_consumption(self):
+        return 0
 
     def kill(self):
         destroy()
