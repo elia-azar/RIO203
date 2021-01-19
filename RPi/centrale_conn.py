@@ -17,42 +17,42 @@ CENTRALE_PORT = 65432
 CONDITION = [True]
 
 def multi_threaded_client(connection):
-    while CONDITION[0]:
-        data = connection.recv(1024)
-        if not data:
-            break
+    data = connection.recv(1024)
+    if not data:
+        connection.close()
+        return
 
-        message = data.decode('utf-8')
-        result = ''
-    
-        if message == "exit":
-            print("Closing server")
-            CONDITION[0] = False
-            break
+    message = data.decode('utf-8')
+    result = ''
 
-        path = message.split("/")
-        action = path[0]
-        sensor = path[1]
+    if message == "exit":
+        print("Closing server")
+        CONDITION[0] = False
+        connection.close()
+        return
 
-        # Get the value of the sensor
-        if action == 'get':
-            if sensor == "traffic_light":
-                result = traffic_light.get_value()
-            elif sensor == "street_light":
-                result = street_light.get_value()
-            elif sensor == "garbage":
-                result = garbage.get_value()
-        # Get the consumption of the monitored object
-        elif action == 'consumption':
-            if sensor == "traffic_light":
-                result = traffic_light.get_consumption()
-            elif sensor == "street_light":
-                result = street_light.get_consumption()
-            elif sensor == "garbage":
-                result = garbage.get_consumption()
+    path = message.split("/")
+    action = path[0]
+    sensor = path[1]
 
-        connection.sendall(str.encode(result))
+    # Get the value of the sensor
+    if action == 'get':
+        if sensor == "traffic_light":
+            result = traffic_light.get_value()
+        elif sensor == "street_light":
+            result = street_light.get_value()
+        elif sensor == "garbage":
+            result = garbage.get_value()
+    # Get the consumption of the monitored object
+    elif action == 'consumption':
+        if sensor == "traffic_light":
+            result = traffic_light.get_consumption()
+        elif sensor == "street_light":
+            result = street_light.get_consumption()
+        elif sensor == "garbage":
+            result = garbage.get_consumption()
 
+    connection.sendall(str.encode(result))
     connection.close()
 
 
@@ -61,11 +61,12 @@ def update(objects_list):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.connect((CENTRALE_HOST, CENTRALE_PORT))
             # Create the value to be sent to the Centrale node
-            # /rpi_update/sensor1:value:state:date*sensor2:value:state:date
+            # /rpi_update/sensor1:value:state:consumption:date*sensor2:value:state:date
             result = "rpi_update/"
             for object in objects_list:
                 date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-                result += object.get_name() + ":" + object.get_value() + ":" + object.get_state() + ":" + date + "*"
+                result += object.get_name() + ":" + object.get_value() + ":" + object.get_state()
+                result += ":" + object.get_consumption() + ":" + date + "*"
             result = result[:-1]
             s.sendall(bytes(result, 'utf-8'))
             s.close()

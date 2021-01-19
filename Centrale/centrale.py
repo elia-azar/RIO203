@@ -32,6 +32,18 @@ SENSORS_DICT = {
     8:"garbage"
 }
 
+# keys sensor_id
+REV_SENSORS_DICT = {
+    "temperature":1,
+    "light":2,
+    "battery":3,
+    "power_meter":4,
+    "washing_machine":5,
+    "street_light":6,
+    "traffic_light":7,
+    "garbage":8
+}
+
 RPI_ALLOWED_ACTIONS = ['get', 'consumption']
 
 # function that gets data from all the nodes and stores them in the DB
@@ -118,113 +130,148 @@ def handle_rpi(action, sensor_id):
         s.close()
     return result
 
+# RPi request handler
+def rpi_update_handler(connection):
+    data = connection.recv(2048)
+    if not data:
+        connection.close()
+        return
+    
+    message = data.decode('utf-8')
+
+    # Parse the update message and update the DB
+    # /rpi_update/sensor1:value:state:consumption:date*sensor2:value:state:date
+    path = message.split("/")
+    action = path[0]
+    home_id = 0
+    if action != "rpi_update":
+        connection.close()
+        return
+    objects = path[1].split("*")
+    for object in objects:
+        components = object.split(":")
+        sensor_id = REV_SENSORS_DICT.get(components[0])
+        value = float(components[1])
+        state = components[2]
+        consumption = components[3]
+        date = components[4]
+        cur.execute("UPDATE sensors \
+            SET consumption = {}, \
+            time = {}, \
+            value = {}, \
+            state = {}, \
+            WHERE home_id = {} AND sensor_id = {};".format(consumption, date, value, state, home_id, sensor_id))
+    
+    connection.close()
+
 # Client handler
 def multi_threaded_client(connection):
-    while CONDITION[0]:
-        data = connection.recv(2048)
-        if not data:
-            break
-        
-        message = data.decode('utf-8')
-        result = ''
+    data = connection.recv(2048)
+    if not data:
+        connection.close()
+        return
     
-        if message == "exit":
-            print("Closing server")
-            CONDITION[0] = False
-            break
+    message = data.decode('utf-8')
+    result = ''
 
-        # Parse request
-        # message type: action/home_id/sensor_id/new_state
-        # authorized actions: get, get_from_db, getall, actuate, consumption, consumption_from_db
-        # home_id: int
-        # sensor_id: int <-> used as a key to get the sensor used (for ex., temperature)
-        # new_state: (Optional) str <-> only used if the chosen action is actuate.
-        path = message.split("/")
-        action = path[0]
-        home_id = 100
-        sensor_id = 100
-        new_state = ""
-        if len(path) > 2:
-            home_id = int(path[1])
-            sensor_id = int(path[2])
-        if len(path) == 4:
-            new_state = path[3]
-        
-        # If home_id == 0, this request is sent to the RPi if the action matches the list
-        if home_id == 0 and action in RPI_ALLOWED_ACTIONS:
-            result = handle_rpi(action, sensor_id)
-            connection.sendall(str.encode(result))
-            continue
+    if message == "exit":
+        print("Closing server")
+        CONDITION[0] = False
+        connection.close()
+        return
 
-        # Building the request
-        ipv6 = get_ipv6(home_id, sensor_id)
-        request = command + "coap://[2001:660:5307:3127::" + ipv6 + "]" + port
+    # Parse request
+    # message type: action/home_id/sensor_id/new_state
+    # authorized actions: get, get_from_db, getall, actuate, consumption, consumption_from_db
+    # home_id: int
+    # sensor_id: int <-> used as a key to get the sensor used (for ex., temperature)
+    # new_state: (Optional) str <-> only used if the chosen action is actuate.
+    path = message.split("/")
+    action = path[0]
+    home_id = 100
+    sensor_id = 100
+    new_state = ""
+    if len(path) > 2:
+        home_id = int(path[1])
+        sensor_id = int(path[2])
+    if len(path) == 4:
+        new_state = path[3]
+    
+    # If home_id == 0, this request is sent to the RPi if the action matches the list
+    if home_id == 0 and action in RPI_ALLOWED_ACTIONS:
+        result = handle_rpi(action, sensor_id)
+        connection.sendall(str.encode(result))
+        connection.close()
+        return
 
-        # Get the value of the sensor by sending a request
-        if action == 'get':
-            # Build the request and send it, then receive the response
-            request += "/sensors/" + SENSORS_DICT.get(sensor_id)
-            result = subprocess.check_output(request, shell=True)
+    # Building the request
+    ipv6 = get_ipv6(home_id, sensor_id)
+    request = command + "coap://[2001:660:5307:3127::" + ipv6 + "]" + port
 
+    # Get the value of the sensor by sending a request
+    if action == 'get':
+        # Build the request and send it, then receive the response
+        request += "/sensors/" + SENSORS_DICT.get(sensor_id)
+        result = subprocess.check_output(request, shell=True)
+
+        # Updating value in the database
+        date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        cur.execute("UPDATE sensors \
+        SET value = {}, \
+        time = {} \
+        WHERE home_id = {} AND sensor_id = {};".format(result, date, home_id, sensor_id))
+        result = [result, date]
+    
+    # Get the value from the DB
+    elif action == 'get_from_db':
+        # Sending SQL query
+        cur.execute("SELECT home_id, sensor_id, value, time \
+        FROM sensors \
+        WHERE home_id = {} AND sensor_id = {};".format(home_id, sensor_id))
+        result = cur.fetchall()
+    
+    # get all the values from the DB
+    elif action == 'getall':
+        # Sending SQL query
+        cur.execute("SELECT home_id, sensor_id, value, time FROM sensors;")
+        result = cur.fetchall()
+
+    # Change the value of a sensor
+    elif action == 'actuate':
+        # Build the request and send it, then receive the response
+        request += "actuate/sensors/" + SENSORS_DICT.get(sensor_id) + "/" + new_state
+        result = subprocess.check_output(request, shell=True)
+
+        if result == "200":
             # Updating value in the database
-            date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
             cur.execute("UPDATE sensors \
-            SET value = {}, \
-            time = {} \
-            WHERE home_id = {} AND sensor_id = {};".format(result, date, home_id, sensor_id))
-            result = [result, date]
-        
-        # Get the value from the DB
-        elif action == 'get_from_db':
-            # Sending SQL query
-            cur.execute("SELECT home_id, sensor_id, value, time \
-            FROM sensors \
-            WHERE home_id = {} AND sensor_id = {};".format(home_id, sensor_id))
-            result = cur.fetchall()
-        
-        # get all the values from the DB
-        elif action == 'getall':
-            # Sending SQL query
-            cur.execute("SELECT home_id, sensor_id, value, time FROM sensors;")
-            result = cur.fetchall()
+            SET state = {} \
+            WHERE home_id = {} AND sensor_id = {};".format(new_state, home_id, sensor_id))
+            #print(cur.fetchall())
+    
+    # Get the consumption of a specific sensor
+    elif action == 'consumption':
+        # Build the request and send it, then receive the response
+        request += "/sensors/" + SENSORS_DICT.get(sensor_id) + "/consumption"
+        result = subprocess.check_output(request, shell=True)
 
-        # Change the value of a sensor
-        elif action == 'actuate':
-            # Build the request and send it, then receive the response
-            request += "actuate/sensors/" + SENSORS_DICT.get(sensor_id) + "/" + new_state
-            result = subprocess.check_output(request, shell=True)
+        # Updating consumption in the database
+        date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        cur.execute("UPDATE sensors \
+        SET consumption = {}, \
+        time = {} \
+        WHERE home_id = {} AND sensor_id = {};".format(result, date, home_id, sensor_id))
+        result = [result, date]
+    
+    # Get the consumption from the DB
+    elif action == 'consumption_from_db':
+        # Sending SQL query
+        cur.execute("SELECT home_id, sensor_id, consumption, time \
+        FROM sensors \
+        WHERE home_id = {} AND sensor_id = {};".format(home_id, sensor_id))
+        result = cur.fetchall()
 
-            if result == "200":
-                # Updating value in the database
-                cur.execute("UPDATE sensors \
-                SET state = {} \
-                WHERE home_id = {} AND sensor_id = {};".format(new_state, home_id, sensor_id))
-                #print(cur.fetchall())
-        
-        # Get the consumption of a specific sensor
-        elif action == 'consumption':
-            # Build the request and send it, then receive the response
-            request += "/sensors/" + SENSORS_DICT.get(sensor_id) + "/consumption"
-            result = subprocess.check_output(request, shell=True)
-
-            # Updating consumption in the database
-            date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-            cur.execute("UPDATE sensors \
-            SET consumption = {}, \
-            time = {} \
-            WHERE home_id = {} AND sensor_id = {};".format(result, date, home_id, sensor_id))
-            result = [result, date]
-        
-        # Get the consumption from the DB
-        elif action == 'consumption_from_db':
-            # Sending SQL query
-            cur.execute("SELECT home_id, sensor_id, consumption, time \
-            FROM sensors \
-            WHERE home_id = {} AND sensor_id = {};".format(home_id, sensor_id))
-            result = cur.fetchall()
-
-        connection.sendall(str.encode(str(result)))
-
+    connection.sendall(str.encode(str(result)))
     connection.close()
 
 # Run a thread that will keep the Database up-to-date
@@ -242,5 +289,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as ServerSideSocket:
     while CONDITION[0]:
         Client, address = ServerSideSocket.accept()
         print('Connected to: ' + address[0] + ':' + str(address[1]))
-        _thread.start_new_thread(multi_threaded_client, (Client, ))
+        if address[0] != RPI_HOST:
+            _thread.start_new_thread(multi_threaded_client, (Client, ))
+        else:
+            _thread.start_new_thread(rpi_update_handler, (Client, ))
     ServerSideSocket.close()
