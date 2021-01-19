@@ -48,6 +48,9 @@ class SmartStreetLight:
         self.state = new_state
         return self.light.update_state(new_state)
     
+    def get_name(self):
+        return "street_light"
+    
     def get_value(self):
         return lux
 

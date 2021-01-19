@@ -5,7 +5,7 @@ import psycopg2
 from datetime import datetime
 import time
 
-HOST = '127.0.0.1' # Server IP address
+HOST = '' # Server IP address
 PORT = 65432       # Server PORT
 
 RPI_HOST = '192.168.0.254'  # RPI IP address
@@ -24,10 +24,15 @@ IPV6_DICT = {
 SENSORS_DICT = {
     1:"temperature",
     2:"light",
-    3:"battery"
+    3:"battery",
+    4:"power_meter",
+    5:"washing_machine",
+    6:"street_light",
+    7:"traffic_light",
+    8:"garbage"
 }
 
-RPI_ALLOWED_ACTIONS = ['get', 'actuate', 'consumption']
+RPI_ALLOWED_ACTIONS = ['get', 'consumption']
 
 # function that gets data from all the nodes and stores them in the DB
 def update():
@@ -75,7 +80,7 @@ def get_ipv6(home_id, sensor_id):
     return IPV6_DICT.get((home_id, sensor_id))
 
 # RPi request handler
-def handle_rpi(action, sensor_id, new_state = "OFF"):
+def handle_rpi(action, sensor_id):
     home_id = 0
     result = ""
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -95,20 +100,6 @@ def handle_rpi(action, sensor_id, new_state = "OFF"):
             time = {} \
             WHERE home_id = {} AND sensor_id = {};".format(result, date, home_id, sensor_id))
             result = [result, date]
-
-        # Change the value of a sensor
-        elif action == 'actuate':
-            # Build the request and send it, then receive the response
-            request = "actuate/" + SENSORS_DICT.get(sensor_id) + "/" + new_state
-            s.sendall(bytes(request, 'utf-8'))
-            result = repr(s.recv(512).decode('utf-8'))
-
-            if result == "200":
-                # Updating value in the database
-                cur.execute("UPDATE sensors \
-                SET state = {} \
-                WHERE home_id = {} AND sensor_id = {};".format(new_state, home_id, sensor_id))
-                #print(cur.fetchall())
         
         # Get the consumption of a specific sensor
         elif action == 'consumption':
@@ -124,6 +115,7 @@ def handle_rpi(action, sensor_id, new_state = "OFF"):
             time = {} \
             WHERE home_id = {} AND sensor_id = {};".format(result, date, home_id, sensor_id))
             result = [result, date]
+        s.close()
     return result
 
 # Client handler
@@ -160,7 +152,7 @@ def multi_threaded_client(connection):
         
         # If home_id == 0, this request is sent to the RPi if the action matches the list
         if home_id == 0 and action in RPI_ALLOWED_ACTIONS:
-            result = handle_rpi(action, sensor_id, new_state)
+            result = handle_rpi(action, sensor_id)
             connection.sendall(str.encode(result))
             continue
 

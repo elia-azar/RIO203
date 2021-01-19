@@ -68,6 +68,9 @@ class GarbageBin:
                 time.sleep(10 * 60)
 
         _thread.start_new_thread(run, (self,))
+    
+    def get_name(self):
+        return "garbage"
 
     def get_value(self):
         return emptyspace

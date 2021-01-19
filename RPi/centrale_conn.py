@@ -1,13 +1,18 @@
 import sys
 sys.path.append(".")
+from datetime import datetime
 import socket
 import _thread
+import time
 from GarbageBin import GarbageBin
 from RealTimeTrafficLight import RealTimeTrafficLight
 from SmartStreetLight import SmartStreeLight
 
 HOST = ''
 PORT = 2727
+
+CENTRALE_HOST = ''
+CENTRALE_PORT = 65432
 
 CONDITION = [True]
 
@@ -51,11 +56,29 @@ def multi_threaded_client(connection):
     connection.close()
 
 
+def update(objects_list):
+    while CONDITION[0]:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.connect((CENTRALE_HOST, CENTRALE_PORT))
+            # Create the value to be sent to the Centrale node
+            # /rpi_update/sensor1:value:state:date*sensor2:value:state:date
+            result = "rpi_update/"
+            for object in objects_list:
+                date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                result += object.get_name() + ":" + object.get_value() + ":" + object.get_state() + ":" + date + "*"
+            result = result[:-1]
+            s.sendall(bytes(result, 'utf-8'))
+            s.close()
+        time.sleep(10*60)
+
 if __name__ == "__main__":
     global traffic_light, street_light, garbage
     traffic_light = RealTimeTrafficLight()
     street_light = SmartStreeLight()
     garbage = GarbageBin()
+    objects_list = [traffic_light, street_light, garbage]
+    # Start a thread to automatically update the values in the DB in Centrale Node
+    _thread.start_new_thread(update, (objects_list, ))
     # Multi-thread server that listens to at most 10 clients
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as ServerSideSocket:
         try:
