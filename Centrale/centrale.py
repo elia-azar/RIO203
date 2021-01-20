@@ -130,7 +130,24 @@ def handle_rpi(action, sensor_id):
         s.close()
     return result
 
-# RPi request handler
+# Function that takes a list of objects with their values and updates the DB
+def update_db(obj_list, home_id):
+    for obj in obj_list:
+        components = obj.split(":")
+        sensor_id = REV_SENSORS_DICT.get(components[0])
+        value = float(components[1])
+        state = components[2]
+        consumption = components[3]
+        date = components[4]
+        cur.execute("UPDATE sensors \
+            SET consumption = {}, \
+            time = {}, \
+            value = {}, \
+            state = {}, \
+            WHERE home_id = {} AND sensor_id = {};".format(consumption, date, value, state, home_id, sensor_id))
+    return
+
+# RPi update handler
 def rpi_update_handler(connection):
     data = connection.recv(2048)
     if not data:
@@ -148,21 +165,21 @@ def rpi_update_handler(connection):
         connection.close()
         return
     objects = path[1].split("*")
-    for object in objects:
-        components = object.split(":")
-        sensor_id = REV_SENSORS_DICT.get(components[0])
-        value = float(components[1])
-        state = components[2]
-        consumption = components[3]
-        date = components[4]
-        cur.execute("UPDATE sensors \
-            SET consumption = {}, \
-            time = {}, \
-            value = {}, \
-            state = {}, \
-            WHERE home_id = {} AND sensor_id = {};".format(consumption, date, value, state, home_id, sensor_id))
-    
+    # update the DB
+    update_db(objects, home_id)
+    # close the connection with the client
     connection.close()
+
+
+# home update handler
+def home_update_handler(message):
+    # Parse the update message and update the DB
+    # /home_update/home_id/sensor1:value:state:consumption:date*sensor2:value:state:date
+    path = message.split("/")
+    home_id = path[1]
+    objects = path[2].split("*")
+    # update the DB
+    update_db(objects, home_id)
 
 # Client handler
 def multi_threaded_client(connection):
@@ -197,6 +214,12 @@ def multi_threaded_client(connection):
     if len(path) == 4:
         new_state = path[3]
     
+    # If the action is home_update, send it to home_update_handler
+    if action == "home_update":
+        home_update_handler(message)
+        connection.close()
+        return
+
     # If home_id == 0, this request is sent to the RPi if the action matches the list
     if home_id == 0 and action in RPI_ALLOWED_ACTIONS:
         result = handle_rpi(action, sensor_id)
