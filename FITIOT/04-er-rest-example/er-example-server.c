@@ -77,10 +77,18 @@ extern resource_t
   res_gyros,
   res_accel,
   res_new_alarm,
+<<<<<<< Updated upstream
   res_value_washing_machine,
   res_state_washing_machine,
   res_consumption_washing_machine,
+=======
+  res_consumption_chauffage,
+  res_state_chauffage,
+  res_value_chauffage,
+  res_actuate_chauffage, 
+>>>>>>> Stashed changes
   res_magne;
+  
 #if PLATFORM_HAS_LEDS
 extern resource_t res_leds, res_toggle;
 #endif
@@ -165,9 +173,18 @@ PROCESS_THREAD(er_example_server, ev, data)
   rest_activate_resource(&res_push, "test/push");
   rest_activate_resource(&res_event, "test/serial");
   rest_activate_resource(&res_new_alarm, "my_res/new_alarm");
+<<<<<<< Updated upstream
   rest_activate_resource(&res_value_washing_machine, "washing_machine");
   rest_activate_resource(&res_state_washing_machine, "washing_machine/state");
   rest_activate_resource(&res_consumption_washing_machine, "washing_machine/consumption");
+=======
+  rest_activate_resource(&res_actuate_chauffage, "my_res/actuate_chauffage");
+  rest_activate_resource(&res_consumption_chauffage, "my_res/consumption_chauffage");
+  rest_activate_resource(&res_state_chauffage, "my_res/state_chauffage");
+  rest_activate_resource(&res_value_chauffage, "my_res/value_chauffage");
+
+  
+>>>>>>> Stashed changes
 /*  rest_activate_resource(&res_sub, "test/sub"); */
 /*  rest_activate_resource(&res_b1_sep_b2, "test/b1sepb2"); */
 #if PLATFORM_HAS_LEDS
