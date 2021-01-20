@@ -39,7 +39,11 @@ class RealTimeTrafficLight:
         def run(self):
             while not Destroy[0]:
                 self.update_state("RED")
-                time.sleep(80)
+                #time.sleep(80)
+                for i in range(80):
+                    if obstacle[0] = True
+                        break
+                    time.sleep(1)
                 self.update_state("GREEN")
                 time.sleep(50)
                 self.update_state("YELLOW")
