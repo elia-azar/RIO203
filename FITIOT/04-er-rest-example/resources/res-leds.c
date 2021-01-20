@@ -69,6 +69,7 @@ RESOURCE(res_leds,
 static void
 res_post_put_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)
 {
+  printf("This is thre request: %s\n", request);
   size_t len = 0;
   const char *color = NULL;
   const char *mode = NULL;

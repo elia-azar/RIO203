@@ -37,7 +37,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include "rest-engine.h"
-#include "res-washing_machine.h"
+#include "res-washing-machine.h"
+#include "extern.h"
+
+char* washing_machine_state = "OFF";
+float washing_consumption = 0;
+float washing_on_Consumption = 500;
+float washing_off_Consumption = 0;
 
 static void res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset);
 
@@ -47,7 +53,7 @@ static void res_get_handler(void *request, void *response, uint8_t *buffer, uint
  * preferred_size and offset, but must respect the REST_MAX_CHUNK_SIZE limit for the buffer.
  * If a smaller block size is requested for CoAP, the REST framework automatically splits the data.
  */
-RESOURCE(res_consumtpion_washing_machine,
+RESOURCE(res_consumption_washing_machine,
          "title=Washing Machine",
          res_get_handler,
          NULL,

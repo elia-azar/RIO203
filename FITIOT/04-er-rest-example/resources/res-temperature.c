@@ -103,23 +103,4 @@ res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferr
   /* The REST.subscription_handler() will be called for observable resources by the REST framework. */
 }
 
-/*
- * Additionally, a handler function named [resource name]_handler must be implemented for each PERIODIC_RESOURCE.
- * It will be called by the REST manager process with the defined period.
- */
-static void
-res_periodic_handler()
-{
-  int temperature = temperature_sensor.value(0);
-
-  ++interval_counter;
-
-  if((abs(temperature - temperature_old) >= CHANGE && interval_counter >= INTERVAL_MIN) || 
-     interval_counter >= INTERVAL_MAX) {
-     interval_counter = 0;
-     temperature_old = temperature;
-    /* Notify the registered observers which will trigger the res_get_handler to create the response. */
-    REST.notify_subscribers(&res_temperature);
-  }
-}
 #endif /* PLATFORM_HAS_TEMPERATURE */

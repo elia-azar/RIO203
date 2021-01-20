@@ -54,7 +54,7 @@ def update():
         request = command + "coap://[2001:660:5307:3127::" + ipv6 + "]" + port
 
         # Request to get current value
-        request += "/sensors/" + SENSORS_DICT.get(SENSORS_DICT.get(sensor_id))
+        request += SENSORS_DICT.get(SENSORS_DICT.get(sensor_id))
         value = subprocess.check_output(request, shell=True)
 
         # Request to get current consumption
@@ -234,7 +234,7 @@ def multi_threaded_client(connection):
     # Get the value of the sensor by sending a request
     if action == 'get':
         # Build the request and send it, then receive the response
-        request += "/sensors/" + SENSORS_DICT.get(sensor_id)
+        request += SENSORS_DICT.get(sensor_id)
         result = subprocess.check_output(request, shell=True)
 
         # Updating value in the database
@@ -262,7 +262,7 @@ def multi_threaded_client(connection):
     # Change the value of a sensor
     elif action == 'actuate':
         # Build the request and send it, then receive the response
-        request += "actuate/sensors/" + SENSORS_DICT.get(sensor_id) + "/" + new_state
+        request += "actuate/" + SENSORS_DICT.get(sensor_id) + "/" + new_state
         result = subprocess.check_output(request, shell=True)
 
         if result == "200":
@@ -275,7 +275,7 @@ def multi_threaded_client(connection):
     # Get the consumption of a specific sensor
     elif action == 'consumption':
         # Build the request and send it, then receive the response
-        request += "/sensors/" + SENSORS_DICT.get(sensor_id) + "/consumption"
+        request += SENSORS_DICT.get(sensor_id) + "/consumption"
         result = subprocess.check_output(request, shell=True)
 
         # Updating consumption in the database

@@ -39,7 +39,7 @@ def update():
                 request = command + ipv6 + port
 
                 # Request to get current value
-                request += "/sensors/" + sensor
+                request += sensor
                 value = subprocess.check_output(request, shell=True)
 
                 # Request to get current consumption

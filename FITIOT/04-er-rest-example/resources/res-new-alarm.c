@@ -60,7 +60,7 @@ RESOURCE(res_new_alarm,
 static void
 res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)
 {
-  printf("This is the request received: %s\n", request)
+  printf("This is the request received: %s\n", request);
   if (last_light != light_info)
   	printf("From Light: %d\n", light_info);
   if (last_pressure != pressure_info)
