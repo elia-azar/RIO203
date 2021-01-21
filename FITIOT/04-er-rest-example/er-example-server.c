@@ -42,7 +42,7 @@
 #include <string.h>
 #include "resources/extern_var.h"
 #include "resources/res-washing-machine.h"
-//#include "resources/res-chauffage.h"
+#include "resources/res-chauffage.h"
 #include "contiki.h"
 #include "contiki-net.h"
 #include "rest-engine.h"
