@@ -43,6 +43,8 @@
 #include "resources/extern_var.h"
 #include "resources/res-washing-machine.h"
 #include "resources/res-chauffage.h"
+#include "resources/temperature.h"
+#include "resources/lamp.h"
 #include "contiki.h"
 #include "contiki-net.h"
 #include "rest-engine.h"
@@ -81,10 +83,16 @@ extern resource_t
   res_value_washing_machine,
   res_state_washing_machine,
   res_consumption_washing_machine,
+  res_value_heater,
+  res_state_heater,
+  res_consumption_heater,
+  res_value_lamp,
+  res_state_lamp,
+  res_consumption_lamp,
   //res_actuate_washing_machine,
-  res_consumption_chauffage,
-  res_state_chauffage,
-  res_value_chauffage,
+  //res_consumption_chauffage,
+  //res_state_chauffage,
+  //res_value_chauffage,
   //res_actuate_chauffage,
   res_magne;
   
@@ -135,7 +143,69 @@ extern resource_t res_magne;
 extern char* res_serial_data;
 
 PROCESS(er_example_server, "Erbium Example Server");
-AUTOSTART_PROCESSES(&er_example_server);
+PROCESS(heater, "Heater");
+PROCESS(lamp, "Lamp");
+AUTOSTART_PROCESSES(&er_example_server, &heater, &lamp);
+
+// Heater Object
+PROCESS_THREAD(heater, ev, data)
+{
+  PROCESS_BEGIN();
+  static struct etimer timer;
+
+  initialize_heater();
+
+  etimer_set(&timer, 3 * 60 * CLOCK_SECOND);
+  
+  if (DEBUG)
+    printf("STARTING HEATER\n");
+
+  while(1) {
+    PROCESS_WAIT_EVENT();
+    if (ev == PROCESS_EVENT_TIMER) {
+        if(t_inside <= START_HEATING_AT){
+            change_heater_state(1);
+        }else if(t_inside >= STOP_HEATING_AT){
+            change_heater_state(0);
+        }
+        update_temperature();
+      etimer_restart(&timer);
+    }
+  }
+
+  PROCESS_END();
+}
+/*---------------------------------------------------------------------------*/
+
+
+// Lamp Object
+PROCESS_THREAD(heater, ev, data)
+{
+  PROCESS_BEGIN();
+  static struct etimer timer;
+
+  initialize_heater();
+
+  etimer_set(&timer, 3 * 60 * CLOCK_SECOND);
+  
+  if (DEBUG)
+      printf("STARTING LAMP\n");
+
+  while(1){
+      if(get_lux(1) <= TURN_ON_AT){
+          change_lamp_state(1);
+      }
+      else if(get_lux(1) >= TURN_OFF_AT){
+          change_lamp_state(0);
+      }
+      update_lux();
+      etimer_restart(&timer);
+    }
+  }
+
+  PROCESS_END();
+}
+/*---------------------------------------------------------------------------*/
 
 PROCESS_THREAD(er_example_server, ev, data)
 {
@@ -175,11 +245,17 @@ PROCESS_THREAD(er_example_server, ev, data)
   rest_activate_resource(&res_value_washing_machine, "washing_machine");
   rest_activate_resource(&res_state_washing_machine, "washing_machine/state");
   rest_activate_resource(&res_consumption_washing_machine, "washing_machine/consumption");
+  rest_activate_resource(&res_consumption_heater, "heater/consumption");
+  rest_activate_resource(&res_state_heater, "heater/state");
+  rest_activate_resource(&res_value_heater, "heater");
+  rest_activate_resource(&res_consumption_lamp, "lamp/consumption");
+  rest_activate_resource(&res_state_lamp, "lamp/state");
+  rest_activate_resource(&res_value_lamp, "lamp");
   /*rest_activate_resource(&res_actuate_washing_machine, "actuate/washing_machine");
-  rest_activate_resource(&res_actuate_chauffage, "actuate/chauffage");*/
+  rest_activate_resource(&res_actuate_chauffage, "actuate/chauffage");
   rest_activate_resource(&res_consumption_chauffage, "chauffage/consumption");
   rest_activate_resource(&res_state_chauffage, "chauffage/state");
-  rest_activate_resource(&res_value_chauffage, "chauffage");
+  rest_activate_resource(&res_value_chauffage, "chauffage");*/
 
   
 /*  rest_activate_resource(&res_sub, "test/sub"); */

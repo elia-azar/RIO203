@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "common.h": "c",
+        "res-chauffage.h": "c",
+        "temperature.h": "c",
+        "lamp.h": "c"
+    }
+}

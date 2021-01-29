@@ -1,0 +1,15 @@
+extern float lux;
+extern int lamp_state;
+const float TURN_ON_AT;
+const float TURN_OFF_AT;
+const float LAMP_ON_CONSUMPTION;
+const float LAMP_OFF_CONSUMPTION;
+void initialize_lamp();
+void update_lux();
+static float get_light();
+float get_lux(int simulation);
+static void config_lamp();
+char * get_lamp_state();
+void run_lamp();
+void change_lamp_state(int new_state);
+float get_lamp_consumption();
