@@ -38,12 +38,6 @@
 #include <string.h>
 #include "rest-engine.h"
 #include "res-washing-machine.h"
-#include "extern.h"
-
-char* washing_machine_state = "OFF";
-float washing_consumption = 0;
-float washing_on_Consumption = 500;
-float washing_off_Consumption = 0;
 
 static void res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset);
 
@@ -62,14 +56,8 @@ RESOURCE(res_consumption_washing_machine,
 
 static void
 res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)
-{ 
-  if(!strncmp(washing_machine_state, on, 2)){
-    washing_consumption = washing_on_Consumption;
-  }
-  else{
-    washing_consumption = washing_off_Consumption;
-  }
+{
   REST.set_header_content_type(response, REST.type.TEXT_PLAIN);
-  snprintf((char*)buffer, REST_MAX_CHUNK_SIZE, "%f", washing_consumption);
+  snprintf((char*)buffer, REST_MAX_CHUNK_SIZE, "%f", get_washing_machine_consumption());
   REST.set_response_payload(response, (int *)buffer, strlen((char*)buffer));
 }

@@ -89,6 +89,7 @@ extern resource_t
   res_value_lamp,
   res_state_lamp,
   res_consumption_lamp,
+  res_power_meter,
   //res_actuate_washing_machine,
   //res_consumption_chauffage,
   //res_state_chauffage,
@@ -251,6 +252,7 @@ PROCESS_THREAD(er_example_server, ev, data)
   rest_activate_resource(&res_consumption_lamp, "lamp/consumption");
   rest_activate_resource(&res_state_lamp, "lamp/state");
   rest_activate_resource(&res_value_lamp, "lamp");
+  rest_activate_resource(&res_power_meter, "power_meter");
   /*rest_activate_resource(&res_actuate_washing_machine, "actuate/washing_machine");
   rest_activate_resource(&res_actuate_chauffage, "actuate/chauffage");
   rest_activate_resource(&res_consumption_chauffage, "chauffage/consumption");

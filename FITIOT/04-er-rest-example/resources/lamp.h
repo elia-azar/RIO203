@@ -1,9 +1,9 @@
 extern float lux;
 extern int lamp_state;
-const float TURN_ON_AT;
-const float TURN_OFF_AT;
-const float LAMP_ON_CONSUMPTION;
-const float LAMP_OFF_CONSUMPTION;
+extern const float TURN_ON_AT;
+extern const float TURN_OFF_AT;
+extern const float LAMP_ON_CONSUMPTION;
+extern const float LAMP_OFF_CONSUMPTION;
 void initialize_lamp();
 void update_lux();
 static float get_light();

@@ -1,11 +1,11 @@
 extern float t_outside;
 extern float t_inside;
 extern float t_heater;
-const float MAX_HEATER_TEMP;
-const float START_HEATING_AT;
-const float STOP_HEATING_AT;
-const float HEATER_ON_CONSUMPTION;
-const float HEATER_OFF_CONSUMPTION;
+extern const float MAX_HEATER_TEMP;
+extern const float START_HEATING_AT;
+extern const float STOP_HEATING_AT;
+extern const float HEATER_ON_CONSUMPTION;
+extern const float HEATER_OFF_CONSUMPTION;
 extern int heater_state;
 extern int daytime_minutes;
 void initialize_heater();

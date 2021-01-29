@@ -3,6 +3,8 @@
         "common.h": "c",
         "res-chauffage.h": "c",
         "temperature.h": "c",
-        "lamp.h": "c"
+        "lamp.h": "c",
+        "stdlib.h": "c",
+        "extern.h": "c"
     }
 }
