@@ -180,12 +180,12 @@ PROCESS_THREAD(heater, ev, data)
 
 
 // Lamp Object
-PROCESS_THREAD(heater, ev, data)
+PROCESS_THREAD(lamp, ev, data)
 {
   PROCESS_BEGIN();
   static struct etimer timer;
 
-  initialize_heater();
+  initialize_lamp(1);
 
   etimer_set(&timer, 3 * 60 * CLOCK_SECOND);
   
