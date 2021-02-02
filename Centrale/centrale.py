@@ -199,7 +199,7 @@ def multi_threaded_client(connection):
 
     # Parse request
     # message type: action/home_id/sensor_id/new_state
-    # authorized actions: get, get_from_db, getall, actuate, consumption, consumption_from_db
+    # authorized actions: get, get_from_db, getall, actuate, consumption, consumption_from_db, state, state_from_db
     # home_id: int
     # sensor_id: int <-> used as a key to get the sensor used (for ex., temperature)
     # new_state: (Optional) str <-> only used if the chosen action is actuate.
@@ -290,6 +290,28 @@ def multi_threaded_client(connection):
     elif action == 'consumption_from_db':
         # Sending SQL query
         cur.execute("SELECT home_id, sensor_id, consumption, time \
+        FROM sensors \
+        WHERE home_id = {} AND sensor_id = {};".format(home_id, sensor_id))
+        result = cur.fetchall()
+    
+    # Get the consumption of a specific sensor
+    elif action == 'state':
+        # Build the request and send it, then receive the response
+        request += SENSORS_DICT.get(sensor_id) + "/state"
+        result = subprocess.check_output(request, shell=True)
+
+        # Updating state in the database
+        date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        cur.execute("UPDATE sensors \
+        SET state = {}, \
+        time = {} \
+        WHERE home_id = {} AND sensor_id = {};".format(result, date, home_id, sensor_id))
+        result = [result, date]
+    
+    # Get the state from the DB
+    elif action == 'state_from_db':
+        # Sending SQL query
+        cur.execute("SELECT home_id, sensor_id, state, time \
         FROM sensors \
         WHERE home_id = {} AND sensor_id = {};".format(home_id, sensor_id))
         result = cur.fetchall()
