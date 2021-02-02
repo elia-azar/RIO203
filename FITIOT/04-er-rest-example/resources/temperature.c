@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "temperature.h"
 #include "common.h"
-#include <time.h>
+#include <sys/time.h>
 //#include <pthread.h> 
 #include <unistd.h>
 
@@ -115,7 +115,7 @@ void *myThreadFun(void *vargp)
         update_temperature();
         sleep(3 * 60);
     }
-    return; 
+    return 0; 
 } 
 
 void run_heater(){/*
@@ -128,7 +128,7 @@ void run_heater(){/*
     return;
 }
 
-int main(){
+int main_heater(){
     //run_heater();
     return 0;
 }

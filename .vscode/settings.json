@@ -5,6 +5,9 @@
         "temperature.h": "c",
         "lamp.h": "c",
         "stdlib.h": "c",
-        "extern.h": "c"
+        "extern.h": "c",
+        "time-replace.h": "c",
+        "stdio.h": "c",
+        "time.h": "c"
     }
 }

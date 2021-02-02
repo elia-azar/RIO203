@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "lamp.h"
 #include "common.h"
-#include <time.h>
+#include <sys/time.h>
 //#include <pthread.h> 
 #include <unistd.h>
 
@@ -14,6 +14,9 @@ int lamp_state = 0;
 
 const float TURN_ON_AT = 50;
 const float TURN_OFF_AT = 60;
+
+const float LAMP_ON_CONSUMPTION = 50;
+const float LAMP_OFF_CONSUMPTION = 0;
 
 float daily_light[] = {0.1, 0.1, 0.2, 0.7, 2, 10, 50, 80, 107, 200, 300, 500,
 700, 750, 690, 580, 500, 450, 340, 250, 50, 10, 1, 0.5};
@@ -114,16 +117,16 @@ void *lampThread(void *vargp)
     if (DEBUG)
         printf("STARTING THREAD FUNCTION\n");
     while(1){
-        if(get_lux() <= TURN_ON_AT){
+        if(get_lux(1) <= TURN_ON_AT){
             change_lamp_state(1);
         }
-        else if(get_lux() >= TURN_OFF_AT){
+        else if(get_lux(1) >= TURN_OFF_AT){
             change_lamp_state(0);
         }
         update_lux();
         sleep(3 * 60);
     }
-    return; 
+    return 0; 
 } 
 
 void run_lamp(){/*
@@ -135,7 +138,7 @@ void run_lamp(){/*
 }
 
 
-int main(){
+int main_lamp(){
     if (DEBUG)
         printf("STARTING MAIN\n");
     //run_lamp();

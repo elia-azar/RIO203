@@ -58,6 +58,6 @@ static void
 res_get_handler(void *request, void *response, uint8_t *buffer, uint16_t preferred_size, int32_t *offset)
 { 
   REST.set_header_content_type(response, REST.type.TEXT_PLAIN); /* text/plain is the default, hence this option could be omitted. */
-  snprintf((char*)buffer, REST_MAX_CHUNK_SIZE, get_washing_machine());
+  snprintf((char*)buffer, REST_MAX_CHUNK_SIZE, "%f", get_washing_machine());
   REST.set_response_payload(response, (int *)buffer, strlen((char*)buffer));
 }
