@@ -6,12 +6,12 @@ import _thread
 import time
 from GarbageBin import GarbageBin
 from RealTimeTrafficLight import RealTimeTrafficLight
-from SmartStreetLight import SmartStreeLight
+from SmartStreetLight import SmartStreetLight
 
 HOST = ''
 PORT = 2727
 
-CENTRALE_HOST = ''
+CENTRALE_HOST = '192.168.1.176'
 CENTRALE_PORT = 65432
 
 CONDITION = [True]
@@ -75,7 +75,7 @@ def update(objects_list):
 if __name__ == "__main__":
     global traffic_light, street_light, garbage
     traffic_light = RealTimeTrafficLight()
-    street_light = SmartStreeLight()
+    street_light = SmartStreetLight()
     garbage = GarbageBin()
     objects_list = [traffic_light, street_light, garbage]
     # Start a thread to automatically update the values in the DB in Centrale Node
