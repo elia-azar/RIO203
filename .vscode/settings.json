@@ -9,7 +9,7 @@
         "time-replace.h": "c",
         "stdio.h": "c",
         "time.h": "c",
-        "res-dryermachine.h": "c",
-        "res-stereo.h": "c"
+        "unistd.h": "c",
+        "stdbool.h": "c"
     }
 }

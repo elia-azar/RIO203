@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "temperature.h"
 #include "common.h"
-#include <sys/time.h>
+#include <time.h>
 //#include <pthread.h> 
 #include <unistd.h>
 
