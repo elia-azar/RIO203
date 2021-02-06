@@ -6,7 +6,7 @@ import _thread
 import time
 from GarbageBin import GarbageBin
 from RealTimeTrafficLight import RealTimeTrafficLight
-#from SmartStreetLight import SmartStreetLight
+from SmartStreetLightb import SmartStreetLightb
 
 HOST = ''
 PORT = 2727
@@ -39,23 +39,23 @@ def multi_threaded_client(connection):
     if action == 'get':
         if sensor == "traffic_light":
             result = traffic_light.get_value()
-        #elif sensor == "street_light":
-        #    result = street_light.get_value()
+        elif sensor == "street_light":
+            result = street_light.get_value()
         elif sensor == "garbage":
             result = garbage.get_value()
     # Get the consumption of the monitored object
     elif action == 'consumption':
         if sensor == "traffic_light":
             result = traffic_light.get_consumption()
-        #elif sensor == "street_light":
-        #    result = street_light.get_consumption()
+        elif sensor == "street_light":
+            result = street_light.get_consumption()
         elif sensor == "garbage":
             result = garbage.get_consumption()
     elif action == 'state':
         if sensor == "traffic_light":
             result = traffic_light.get_state()
-        #elif sensor == "street_light":
-        #    result = street_light.get_state()
+        elif sensor == "street_light":
+            result = street_light.get_state()
         elif sensor == "garbage":
             result = garbage.get_state()
 
@@ -68,7 +68,7 @@ def update(objects_list):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.connect((CENTRALE_HOST, CENTRALE_PORT))
             # Create the value to be sent to the Centrale node
-            # /rpi_update/sensor1:value:state:consumption:date*sensor2:value:state:date
+            # /rpi_update/sensor1:value:state:consumption:date*sensor2:value:state:...
             result = "rpi_update/"
             for object in objects_list:
                 date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
@@ -80,9 +80,9 @@ def update(objects_list):
         time.sleep(10*60)
 
 if __name__ == "__main__":
-    global traffic_light, garbage#street_light
+    global traffic_light, garbage, street_light
     traffic_light = RealTimeTrafficLight()
-    #street_light = SmartStreetLight()
+    street_light = SmartStreetLightb()
     garbage = GarbageBin()
     objects_list = [traffic_light, garbage] #street_light]
     # Start a thread to automatically update the values in the DB in Centrale Node
