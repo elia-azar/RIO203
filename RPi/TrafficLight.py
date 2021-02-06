@@ -6,9 +6,9 @@ STATES = {
     "GREEN": 0x00FF00
     }
 
-R = 11
-G = 12
-B = 13
+R = 29
+G = 22
+B = 32
 
 def setup(Rpin, Gpin, Bpin):
 	global pins

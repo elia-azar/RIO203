@@ -10,7 +10,7 @@ def setup():
     global pins
     global p_R, p_G
 
-    pins = (11, 12)  # pins is a dict
+    pins = (15, 16)  # pins is a dict
 
     GPIO.setmode(GPIO.BOARD)       # Numbers GPIOs by physical location
     GPIO.setup(pins, GPIO.OUT)   # Set pins' mode is output

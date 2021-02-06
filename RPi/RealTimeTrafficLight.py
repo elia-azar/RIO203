@@ -5,7 +5,7 @@ import time
 import _thread
 from TrafficLight import TrafficLight
 
-ObstaclePin = 11
+ObstaclePin = 31
 Destroy = [False]
 Obstacle = [False]
 
