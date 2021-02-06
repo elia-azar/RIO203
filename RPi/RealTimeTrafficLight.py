@@ -35,7 +35,6 @@ class RealTimeTrafficLight:
         self.state = "RED"
         self.light = TrafficLight()
 
-        #TODO based on the obstacle value, decide if we should turn the light to green
         def run(self):
             while not Destroy[0]:
                 self.update_state("RED")
