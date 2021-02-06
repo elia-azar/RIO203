@@ -6,7 +6,7 @@ import _thread
 import time
 from GarbageBin import GarbageBin
 from RealTimeTrafficLight import RealTimeTrafficLight
-from SmartStreetLight import SmartStreetLight
+#from SmartStreetLight import SmartStreetLight
 
 HOST = ''
 PORT = 2727
@@ -39,18 +39,25 @@ def multi_threaded_client(connection):
     if action == 'get':
         if sensor == "traffic_light":
             result = traffic_light.get_value()
-        elif sensor == "street_light":
-            result = street_light.get_value()
+        #elif sensor == "street_light":
+        #    result = street_light.get_value()
         elif sensor == "garbage":
             result = garbage.get_value()
     # Get the consumption of the monitored object
     elif action == 'consumption':
         if sensor == "traffic_light":
             result = traffic_light.get_consumption()
-        elif sensor == "street_light":
-            result = street_light.get_consumption()
+        #elif sensor == "street_light":
+        #    result = street_light.get_consumption()
         elif sensor == "garbage":
             result = garbage.get_consumption()
+    elif action == 'state':
+        if sensor == "traffic_light":
+            result = traffic_light.get_state()
+        #elif sensor == "street_light":
+        #    result = street_light.get_state()
+        elif sensor == "garbage":
+            result = garbage.get_state()
 
     connection.sendall(str.encode(str(result)))
     connection.close()
@@ -73,11 +80,11 @@ def update(objects_list):
         time.sleep(10*60)
 
 if __name__ == "__main__":
-    global traffic_light, street_light, garbage
+    global traffic_light, garbage#street_light
     traffic_light = RealTimeTrafficLight()
-    street_light = SmartStreetLight()
+    #street_light = SmartStreetLight()
     garbage = GarbageBin()
-    objects_list = [traffic_light, street_light, garbage]
+    objects_list = [traffic_light, garbage] #street_light]
     # Start a thread to automatically update the values in the DB in Centrale Node
     _thread.start_new_thread(update, (objects_list, ))
     # Multi-thread server that listens to at most 10 clients

@@ -12,7 +12,7 @@
 #include "resources/temperature.h"
 #include "resources/lamp.h"
 
-int REST_MAX_CHUNK_SIZE = 13;
+int REST_MAX_CHUNK_SIZE = 100;
 
 void *lamp(void *vargp){
     initialize_lamp(1);
@@ -59,6 +59,11 @@ void parser(char* buffer, char* buffer_to_send, int read_size){
     }else if (!strncmp(buffer, "power_meter", read_size)){
         float consumpt = get_heater_consumption() + get_lamp_consumption() + get_washing_machine_consumption();
         snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", consumpt);
+    }else if(!strncmp(buffer, "everything", read_size)){
+        /*char *answer = ;
+        sprintf("washing-machine_value:%f_consumption:%f_state:%s||heater\
+        _value:%f_consumption:%f_state:%s||lamp_value:%f_consumption:%f_state:%s\
+        power_meter_value:%f\n",);*/
     }else{
         snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "Bad Request");
     }
