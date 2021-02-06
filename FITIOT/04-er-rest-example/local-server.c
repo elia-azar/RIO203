@@ -135,18 +135,21 @@ int main(){
     //Accept and incoming connection
     puts("Waiting for incoming connections...");
     c = sizeof(struct sockaddr_in);
-    pthread_t thread_id;
+    pthread_t thread_id[5];
+    int i = 0;
     
     //Receive a message from client
     while(client_sock = accept(sockfd, (struct sockaddr *)&cliaddr, (socklen_t*)&c))
     {   
-        puts("Connection accepted");
+        printf("Connection accepted, served by thread: %i\n",i);
 
-        if( pthread_create(&thread_id , NULL ,  connection_handler , (void*) &client_sock) < 0)
+        if( pthread_create(&thread_id[i] , NULL ,  connection_handler , (void*) &client_sock) < 0)
         {
             perror("could not create thread");
             return 1;
         }
+        
+        i = (i+1) % 5;
          
         //Now join the thread , so that we dont terminate before the thread
         //pthread_join( thread_id , NULL);

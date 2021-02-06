@@ -9,7 +9,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
     #s.sendall(b'exit')
     #s.sendall(b'get_from_db/2/1')
-    s.sendall(b'lamp/state')
+    s.sendall(b'heater/consumption')
     #s.sendall(b'getall/2/1')
     data = s.recv(1024)
 
