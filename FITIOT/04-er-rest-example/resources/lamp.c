@@ -2,12 +2,12 @@
 #include "lamp.h"
 #include "common.h"
 #include <time.h>
-//#include <pthread.h> 
+#include <pthread.h> 
 #include <unistd.h>
 
-#include "contiki.h"
-#include "dev/light-sensor.h"
-#include "dev/leds.h"
+//#include "contiki.h"
+//#include "dev/light-sensor.h"
+//#include "dev/leds.h"
 
 float lux = 0;
 int lamp_state = 0;
@@ -24,18 +24,18 @@ float daily_light[] = {0.1, 0.1, 0.2, 0.7, 2, 10, 50, 80, 107, 200, 300, 500,
 
 /* Light sensor */
 static void config_lamp()
-{
+{/*
   light_sensor.configure(LIGHT_SENSOR_SOURCE, ISL29020_LIGHT__AMBIENT);
   light_sensor.configure(LIGHT_SENSOR_RESOLUTION, ISL29020_RESOLUTION__16bit);
   light_sensor.configure(LIGHT_SENSOR_RANGE, ISL29020_RANGE__1000lux);
-  SENSORS_ACTIVATE(light_sensor);
+  SENSORS_ACTIVATE(light_sensor);*/
   return;
 }
 
-static float get_light(){
+static float get_light(){/*
   int light_val = light_sensor.value(0);
-  float light = ((float)light_val / LIGHT_SENSOR_VALUE_SCALE);
-  return light;
+  float light = ((float)light_val / LIGHT_SENSOR_VALUE_SCALE);*/
+  return 0;
 }
 
 /*---------------------------------------------------------------------------*/
@@ -91,12 +91,12 @@ float get_lux(int simulation){
 }
 
 void change_lamp_state(int new_state){
-    lamp_state = new_state;
+    lamp_state = new_state;/*
     if (lamp_state){
         leds_on(LEDS_ALL);
     }else{
         leds_off(LEDS_ALL);
-    }
+    }*/
 }
 
 char * get_lamp_state(){
@@ -129,11 +129,11 @@ void *lampThread(void *vargp)
     return 0; 
 } 
 
-void run_lamp(){/*
-    initialize_lamp();
+void run_lamp(){
+    initialize_lamp(1);
     pthread_t thread_id; 
     pthread_create(&thread_id, NULL, lampThread, NULL); 
-    pthread_join(thread_id, NULL); */
+    pthread_join(thread_id, NULL);
     return;
 }
 

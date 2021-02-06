@@ -14,4 +14,5 @@ float get_temperature();
 char * get_heater_state();
 float get_heater_consumption();
 void change_heater_state(int new_state);
+void *heaterThread(void *vargp);
 void run_heater();

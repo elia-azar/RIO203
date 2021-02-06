@@ -1,8 +1,8 @@
 LINK_TARGET = \
-	temperature
+	temperature lamp washing-machine
 
 OBJS = \
-	temperature.o
+	temperature.o lamp.o washing-machine.o
 
 REBUILDABLES = $(OBJS) $(LINK_TARGET)
 
@@ -20,3 +20,5 @@ $(LINK_TARGET) : $(OBJS)
 	cc -g  -Wall -o $@ -c $<
   
 temperature.o : temperature.c
+lamp.o : lamp.c
+washing-machine.o : washing-machine.c

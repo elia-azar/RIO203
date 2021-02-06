@@ -1,51 +1,73 @@
-all: er-example-server er-example-client
+# A sample Makefile
+# This Makefile demonstrates and explains 
+# Make Macros, Macro Expansions,
+# Rules, Targets, Dependencies, Commands, Goals
+# Artificial Targets, Pattern Rule, Dependency Rule.
 
-CONTIKI = ../../..
+# Comments start with a # and go to the end of the line.
 
-CFLAGS += -DPROJECT_CONF_H=\"project-conf.h\"
+# Here is a simple Make Macro.
 
-# automatically build RESTful resources
-REST_RESOURCES_DIR = ./resources
-REST_RESOURCES_FILES = $(notdir $(shell find $(REST_RESOURCES_DIR) -name '*.c'))
+LINK_TARGET = local-server
 
-PROJECTDIRS += $(REST_RESOURCES_DIR)
-PROJECT_SOURCEFILES += $(REST_RESOURCES_FILES)
+# Here is a Make Macro that uses the backslash to extend to multiple lines.
+# This allows quick modification of more object files.
 
-# linker optimizations
-SMALL=1
+OBJS = \
+	local-server.o resources/temperature.o resources/lamp.o resources/res-washing-machine.o
+	
+# Here is a Make Macro defined by two Macro Expansions.
+# A Macro Expansion may be treated as a textual replacement of the Make Macro.
+# Macro Expansions are introduced with $ and enclosed in (parentheses).
 
-# REST Engine shall use Erbium CoAP implementation
-APPS += er-coap
-APPS += rest-engine
+REBUILDABLES = $(OBJS) $(LINK_TARGET)
 
-# optional rules to get assembly
-#CUSTOM_RULE_C_TO_OBJECTDIR_O = 1
-#CUSTOM_RULE_S_TO_OBJECTDIR_O = 1
+# There are two standard Targets your Makefile should probably have:
+# "all" and "clean", because they are often command-line Goals.
+# Also, these are both typically Artificial Targets, because they don't typically
+# correspond to real files named "all" or "clean".  
 
-CONTIKI_WITH_IPV6 = 1
-include $(CONTIKI)/Makefile.include
+# The rule for "all" is used to incrementally build your system.
+# It does this by expressing a dependency on the results of that system,
+# which in turn have their own rules and dependencies.
+all : $(LINK_TARGET)
 
-# minimal-net target is currently broken in Contiki
-ifeq ($(TARGET), minimal-net)
-CFLAGS += -DHARD_CODED_ADDRESS=\"fdfd::10\"
-${info INFO: er-example compiling with large buffers}
-CFLAGS += -DUIP_CONF_BUFFER_SIZE=1300
-CFLAGS += -DREST_MAX_CHUNK_SIZE=1024
-CFLAGS += -DCOAP_MAX_HEADER_SIZE=176
-CONTIKI_WITH_RPL=0
-endif
+# Make Macros do not need to be defined before their Macro Expansions,
+# but they normally should be defined before they appear in any Rules.
+# Consequently Make Macros often appear first in a Makefile.
 
-# optional rules to get assembly
-#$(OBJECTDIR)/%.o: asmdir/%.S
-#	$(CC) $(CFLAGS) -MMD -c $< -o $@
-#	@$(FINALIZE_DEPENDENCY)
-#
-#asmdir/%.S: %.c
-#	$(CC) $(CFLAGS) -MMD -S $< -o $@
+# Here is a simple Rule (used for "cleaning" your build environment).
+# It has a Target named "clean" (left of the colon ":" on the first line),
+# no Dependencies (right of the colon),
+# and two Commands (indented by tabs on the lines that follow).
+# The space before the colon is not required but added here for clarity.
 
-# border router rules
-$(CONTIKI)/tools/tunslip6:	$(CONTIKI)/tools/tunslip6.c
-	(cd $(CONTIKI)/tools && $(MAKE) tunslip6)
+clean: 
+	rm -f $(REBUILDABLES)
 
-connect-router:	$(CONTIKI)/tools/tunslip6
-	sudo $(CONTIKI)/tools/tunslip6 fd00::1/64
+# There is no required order to the list of rules as they appear in the Makefile.
+# Make will build its own dependency tree and only execute each rule only once
+# its dependencies' rules have been executed successfully.
+
+# Here is a Rule that uses some built-in Make Macros in its command:
+# $@ expands to the rule's target
+# $^ expands to the rule's dependencies
+#$(LINK_TARGET) : $(OBJS)
+local-server : local-server.o resources/temperature.o resources/lamp.o resources/res-washing-machine.o
+	gcc -g3  -o  $@ $^ -lpcap -lpthread
+
+# Here is a Pattern Rule, often used for compile-line.
+# It says how to create a file with a .o suffix, given a file with a .c suffix.
+# The rule's command uses some built-in Make Macros:
+# $@ for the pattern-matched target
+# $lt; for the pattern-matched dependency
+
+%.o : %.c
+	gcc -g -Wall -o $@ -c $< -lpcap -lpthread
+  
+# These are Dependency Rules, which are rules without any command.
+# Dependency Rules indicate that if any file to the right of the colon changes,
+# the target to the left of the colon should be considered out-of-date.
+# The commands for making an out-of-date target up-to-date may be found elsewhere
+# (in this case, by the Pattern Rule above).
+# Dependency Rules are often used to capture header file dependencies.

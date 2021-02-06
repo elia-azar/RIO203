@@ -10,6 +10,9 @@
         "stdio.h": "c",
         "time.h": "c",
         "unistd.h": "c",
-        "stdbool.h": "c"
+        "stdbool.h": "c",
+        "pthread.h": "c",
+        "res-washing-machine.h": "c",
+        "extern_var.h": "c"
     }
 }

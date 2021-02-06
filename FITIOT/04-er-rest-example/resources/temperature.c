@@ -2,7 +2,7 @@
 #include "temperature.h"
 #include "common.h"
 #include <time.h>
-//#include <pthread.h> 
+#include <pthread.h> 
 #include <unistd.h>
 
 float t_outside = 0;
@@ -102,7 +102,7 @@ float get_heater_consumption(){
     return HEATER_OFF_CONSUMPTION;
 }
 
-void *myThreadFun(void *vargp) 
+void *heaterThread(void *vargp) 
 {
     if (DEBUG)
         printf("STARTING THREAD FUNCTION\n");
@@ -118,13 +118,13 @@ void *myThreadFun(void *vargp)
     return 0; 
 } 
 
-void run_heater(){/*
+void run_heater(){
     if (DEBUG)
         printf("STARTING MAIN\n");
     initialize_heater();
     pthread_t thread_id; 
-    pthread_create(&thread_id, NULL, myThreadFun, NULL); 
-    pthread_join(thread_id, NULL); */
+    pthread_create(&thread_id, NULL, heaterThread, NULL); 
+    pthread_join(thread_id, NULL);
     return;
 }
 

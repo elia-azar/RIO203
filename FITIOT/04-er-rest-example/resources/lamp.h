@@ -8,6 +8,7 @@ void initialize_lamp();
 void update_lux();
 float get_lux(int simulation);
 char * get_lamp_state();
+void *lampThread(void *vargp);
 void run_lamp();
 void change_lamp_state(int new_state);
 float get_lamp_consumption();
