@@ -84,9 +84,6 @@ def update_10_min():
         time.sleep(10*60)
     return
 
-# Variables used to send coap requests
-command = "aiocoap-client "
-port = ":5683"
 
 # Connect to postgres DB
 conn = psycopg2.connect("dbname='postgres' user='postgres' host='127.0.0.1' password='postgres' port='5432'")
@@ -94,11 +91,8 @@ conn = psycopg2.connect("dbname='postgres' user='postgres' host='127.0.0.1' pass
 # Open a cursor to perform database operations
 cur = conn.cursor()
 
-# Returns the IPV6 based on home_id and sensor_id
-def get_ipv6(home_id, sensor_id):
-    return IPV6_DICT.get((home_id, sensor_id))
-
 # RPi request handler
+#TODO Add state handler
 def handle_rpi(action, sensor_id):
     home_id = 0
     result = ""
@@ -164,7 +158,7 @@ def rpi_update_handler(connection):
     message = data.decode('utf-8')
 
     # Parse the update message and update the DB
-    # /rpi_update/sensor1:value:state:consumption:date*sensor2:value:state:date
+    # /rpi_update/sensor1:value:state:consumption:date*sensor2:value:state:...
     path = message.split("/")
     action = path[0]
     home_id = 0
@@ -177,7 +171,7 @@ def rpi_update_handler(connection):
     # close the connection with the client
     connection.close()
 
-
+#TODO modify and adapt it to the local-server
 # home update handler
 def home_update_handler(message):
     # Parse the update message and update the DB
@@ -188,6 +182,7 @@ def home_update_handler(message):
     # update the DB
     update_db(objects, home_id)
 
+#TODO adapt the requests and send them to the appropriate Home_addr
 # Client handler
 def multi_threaded_client(connection):
     data = connection.recv(2048)
@@ -214,12 +209,9 @@ def multi_threaded_client(connection):
     action = path[0]
     home_id = 100
     sensor_id = 100
-    new_state = ""
     if len(path) > 2:
         home_id = int(path[1])
         sensor_id = int(path[2])
-    if len(path) == 4:
-        new_state = path[3]
     
     # If the action is home_update, send it to home_update_handler
     if action == "home_update":
@@ -234,10 +226,6 @@ def multi_threaded_client(connection):
         connection.close()
         return
 
-    # Building the request
-    ipv6 = get_ipv6(home_id, sensor_id)
-    request = command + "coap://[2001:660:5307:3127::" + ipv6 + "]" + port
-
     # Get the value of the sensor by sending a request
     if action == 'get':
         # Build the request and send it, then receive the response
@@ -251,34 +239,7 @@ def multi_threaded_client(connection):
         time = {} \
         WHERE home_id = {} AND sensor_id = {};".format(result, date, home_id, sensor_id))
         result = [result, date]
-    
-    # Get the value from the DB
-    elif action == 'get_from_db':
-        # Sending SQL query
-        cur.execute("SELECT home_id, sensor_id, value, time \
-        FROM sensors \
-        WHERE home_id = {} AND sensor_id = {};".format(home_id, sensor_id))
-        result = cur.fetchall()
-    
-    # get all the values from the DB
-    elif action == 'getall':
-        # Sending SQL query
-        cur.execute("SELECT home_id, sensor_id, value, time FROM sensors;")
-        result = cur.fetchall()
 
-    # Change the value of a sensor
-    elif action == 'actuate':
-        # Build the request and send it, then receive the response
-        request += "actuate/" + SENSORS_DICT.get(sensor_id) + "/" + new_state
-        result = subprocess.check_output(request, shell=True)
-
-        if result == "200":
-            # Updating value in the database
-            cur.execute("UPDATE sensors \
-            SET state = {} \
-            WHERE home_id = {} AND sensor_id = {};".format(new_state, home_id, sensor_id))
-            #print(cur.fetchall())
-    
     # Get the consumption of a specific sensor
     elif action == 'consumption':
         # Build the request and send it, then receive the response
@@ -293,14 +254,6 @@ def multi_threaded_client(connection):
         WHERE home_id = {} AND sensor_id = {};".format(result, date, home_id, sensor_id))
         result = [result, date]
     
-    # Get the consumption from the DB
-    elif action == 'consumption_from_db':
-        # Sending SQL query
-        cur.execute("SELECT home_id, sensor_id, consumption, time \
-        FROM sensors \
-        WHERE home_id = {} AND sensor_id = {};".format(home_id, sensor_id))
-        result = cur.fetchall()
-    
     # Get the consumption of a specific sensor
     elif action == 'state':
         # Build the request and send it, then receive the response
@@ -314,14 +267,6 @@ def multi_threaded_client(connection):
         time = {} \
         WHERE home_id = {} AND sensor_id = {};".format(result, date, home_id, sensor_id))
         result = [result, date]
-    
-    # Get the state from the DB
-    elif action == 'state_from_db':
-        # Sending SQL query
-        cur.execute("SELECT home_id, sensor_id, state, time \
-        FROM sensors \
-        WHERE home_id = {} AND sensor_id = {};".format(home_id, sensor_id))
-        result = cur.fetchall()
 
     connection.sendall(str.encode(str(result)))
     connection.close()

@@ -1,3 +1,3 @@
-create a python script that will gather the data per home every 3 minutes and send it to the centrale
-create the new resources as mentionned in the res-example.c
-check everything the connectivity between the centrale node and the FitIoT
+Create local-server for house 2 and house 3
+Create an simulation for the objects that doesn't have sensors in them
+modify home_update to gather information from local-servers

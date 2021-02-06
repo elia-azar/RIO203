@@ -1,3 +1,1 @@
-Check if multi-threading creates a deadlock or generates errors if too many calls to the same DB connector
-maybe implement gethome, gethome_from_db, get_state
-Adapt the code after the implementation of a python code per home in FitIoT
+Finish the TODOs in centrale_b.py 
