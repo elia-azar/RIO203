@@ -121,7 +121,7 @@ void *heaterThread(void *vargp)
 void run_heater(){
     if (DEBUG)
         printf("STARTING MAIN\n");
-    initialize_heater();consumption
+    initialize_heater();
     pthread_t thread_id; 
     pthread_create(&thread_id, NULL, heaterThread, NULL); 
     pthread_join(thread_id, NULL);

@@ -1,5 +1,24 @@
 #include <stdio.h>
 #include "res-DryerMachine.h"
+#include <time.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+
+srand(time(0));
+
+int random_number(){
+    return rand() % 337;
+} 
+
+void initialize_dryer(){
+    if(random_number() > 330){
+        change_DryerMachine_state(1);
+    }else{
+        change_DryerMachine_state(0);
+    }
+    return;
+}
 
 char* DryerMachine_state = "OFF";
 float DryerMachine_consumption = 0;
@@ -28,4 +47,16 @@ void change_DryerMachine_state(int new_state){
 
 float get_DryerMachine(){
     return 0;
+}
+
+void *dryerThread(void *vargp){
+    while(1){
+        if(random_number() > 330){
+            change_DryerMachine_state(1);
+        }else{
+            change_DryerMachine_state(0);
+        }
+        sleep(30 * 60);
+    }
+    return 0; 
 }

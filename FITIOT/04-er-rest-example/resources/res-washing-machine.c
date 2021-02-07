@@ -1,5 +1,23 @@
 #include <stdio.h>
 #include "res-washing-machine.h"
+#include <time.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+srand(time(0));
+
+int random_number(){
+    return rand() % 337;
+} 
+
+void initialize_washing_machine(){
+    if(random_number() > 330){
+        change_washing_machine_state(1);
+    }else{
+        change_washing_machine_state(0);
+    }
+    return;
+}
 
 char* washing_machine_state = "OFF";
 float washing_consumption = 0;
@@ -28,4 +46,16 @@ void change_washing_machine_state(int new_state){
 
 float get_washing_machine(){
     return 0;
+}
+
+void *washing_machineThread(void *vargp){
+    while(1){
+        if(random_number() > 330){
+            change_washing_machine_state(1);
+        }else{
+            change_washing_machine_state(0);
+        }
+        sleep(30 * 60);
+    }
+    return 0; 
 }

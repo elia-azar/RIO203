@@ -6,3 +6,5 @@ float get_washing_machine();
 char * get_washing_machine_state();
 float get_washing_machine_consumption();
 void change_washing_machine_state(int new_state);
+void initialize_washing_machine();
+void *washing_machineThread(void *vargp);

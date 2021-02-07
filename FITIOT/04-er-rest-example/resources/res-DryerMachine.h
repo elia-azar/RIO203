@@ -6,3 +6,5 @@ float get_DryerMachine();
 char * get_DryerMachine_state();
 float get_DryerMachine_consumption();
 void change_DryerMachine_state(int new_state);
+void initialize_dryer();
+void *dryerThread(void *vargp);

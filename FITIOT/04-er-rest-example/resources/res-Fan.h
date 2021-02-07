@@ -1,8 +1,14 @@
+extern float t_outside;
 extern char* Fan_state;
 extern float Fan_consumption;
-extern float Fan_on_Consumption;
+extern float Fan_1_on_Consumption;
+extern float Fan_2_on_Consumption;
 extern float Fan_off_Consumption;
+extern const float START_FAN_1_AT;
+extern const float START_FAN_2_AT;
 float get_Fan();
 char * get_Fan_state();
 float get_Fan_consumption();
 void change_Fan_state(int new_state);
+void initialize_fan();
+void *fanThread(void *vargp);

@@ -6,3 +6,5 @@ float get_stereo();
 char * get_stereo_state();
 float get_stereo_consumption();
 void change_stereo_state(int new_state);
+void initialize_stereo();
+void *stereoThread(void *vargp);
