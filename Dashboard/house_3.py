@@ -14,19 +14,19 @@ ACTIONS = ["get", "state", "consumption"]
 
 # keys sensor_id
 SENSORS = [
-    "heater",
-    "lamp",
+    "garage",
+    "dryer",
     "power_meter",
-    "washing_machine"
+    "refrigerator"
 ]
 
 # Thingsboard platform credentials
 THINGSBOARD_HOST = 'demo.thingsboard.io'
 
-LAMP_ACCESS_TOKEN = "N8PFRl2uR91Ht3Z6Tt5T"
-HEATER_ACCESS_TOKEN = "GkUfBsbTmeSUT3ifILPk"
+GARAGE_ACCESS_TOKEN = "N8PFRl2uR91Ht3Z6Tt5T"
+DRYER_ACCESS_TOKEN = "GkUfBsbTmeSUT3ifILPk"
 POWER_METER_ACCESS_TOKEN = "qtTrO2mmLK08svOw7nv1"
-WASHING_MACHINE_ACCESS_TOKEN = "vNq8XLUY2F2zaIvoi9px"
+REFRIGERATOR_ACCESS_TOKEN = "vNq8XLUY2F2zaIvoi9px"
 
 
 
@@ -34,21 +34,21 @@ INTERVAL = 5
 sensor_data = {}
 next_reading = time.time()
 
-# mqtt client for lamp
-client_lamp = mqtt.Client()
-client_lamp.username_pw_set(LAMP_ACCESS_TOKEN)
-client_lamp.connect(THINGSBOARD_HOST,1883,60)
-client_lamp.loop_start()
-# mqtt client for heater
-client_heater = mqtt.Client()
-client_heater.username_pw_set(HEATER_ACCESS_TOKEN)
-client_heater.connect(THINGSBOARD_HOST,1883,60)
-client_heater.loop_start()
-# mqtt client for washing_machine
-client_washing_machine = mqtt.Client()
-client_washing_machine.username_pw_set(WASHING_MACHINE_ACCESS_TOKEN)
-client_washing_machine.connect(THINGSBOARD_HOST,1883,60)
-client_washing_machine.loop_start()
+# mqtt client for garage
+client_garage = mqtt.Client()
+client_garage.username_pw_set(GARAGE_ACCESS_TOKEN)
+client_garage.connect(THINGSBOARD_HOST,1883,60)
+client_garage.loop_start()
+# mqtt client for dryer
+client_dryer = mqtt.Client()
+client_dryer.username_pw_set(DRYER_ACCESS_TOKEN)
+client_dryer.connect(THINGSBOARD_HOST,1883,60)
+client_dryer.loop_start()
+# mqtt client for refrigerator
+client_refrigerator = mqtt.Client()
+client_refrigerator.username_pw_set(REFRIGERATOR_ACCESS_TOKEN)
+client_refrigerator.connect(THINGSBOARD_HOST,1883,60)
+client_refrigerator.loop_start()
 # mqtt client for power_meter
 client_power_meter = mqtt.Client()
 client_power_meter.username_pw_set(POWER_METER_ACCESS_TOKEN)
@@ -56,9 +56,9 @@ client_power_meter.connect(THINGSBOARD_HOST,1883,60)
 client_power_meter.loop_start()
 
 MQTT_DICT = {
-    "lamp": client_lamp,
-    "heater": client_heater,
-    "washing_machine": client_washing_machine,
+    "garage": client_garage,
+    "dryer": client_dryer,
+    "refrigerator": client_refrigerator,
     "power_meter": client_power_meter
 }
 
@@ -103,11 +103,11 @@ try:
 except KeyboardInterrupt:
     pass
 
-client_lamp.loop_stop()
-client_lamp.disconnect()
-client_heater.loop_stop()
-client_heater.disconnect()
-client_washing_machine.loop_stop()
-client_washing_machine.disconnect()
+client_garage.loop_stop()
+client_garage.disconnect()
+client_dryer.loop_stop()
+client_dryer.disconnect()
+client_refrigerator.loop_stop()
+client_refrigerator.disconnect()
 client_power_meter.loop_stop()
 client_power_meter.disconnect()

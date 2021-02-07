@@ -8,25 +8,23 @@ import _thread
 CENTRALE_HOST = ''
 CENTRALE_PORT = 65432
 
-HOUSE_ID = 1
+HOUSE_ID = 0
 
 ACTIONS = ["get", "state", "consumption"]
 
 # keys sensor_id
 SENSORS = [
-    "heater",
-    "lamp",
-    "power_meter",
-    "washing_machine"
+    "street_light",
+    "traffic_light",
+    "garbage"
 ]
 
 # Thingsboard platform credentials
 THINGSBOARD_HOST = 'demo.thingsboard.io'
 
-LAMP_ACCESS_TOKEN = "N8PFRl2uR91Ht3Z6Tt5T"
-HEATER_ACCESS_TOKEN = "GkUfBsbTmeSUT3ifILPk"
-POWER_METER_ACCESS_TOKEN = "qtTrO2mmLK08svOw7nv1"
-WASHING_MACHINE_ACCESS_TOKEN = "vNq8XLUY2F2zaIvoi9px"
+STREET_LIGHT_ACCESS_TOKEN = "N8PFRl2uR91Ht3Z6Tt5T"
+GARBAGE_ACCESS_TOKEN = "GkUfBsbTmeSUT3ifILPk"
+TRAFFIC_LIGHT_ACCESS_TOKEN = "vNq8XLUY2F2zaIvoi9px"
 
 
 
@@ -34,32 +32,26 @@ INTERVAL = 5
 sensor_data = {}
 next_reading = time.time()
 
-# mqtt client for lamp
-client_lamp = mqtt.Client()
-client_lamp.username_pw_set(LAMP_ACCESS_TOKEN)
-client_lamp.connect(THINGSBOARD_HOST,1883,60)
-client_lamp.loop_start()
-# mqtt client for heater
-client_heater = mqtt.Client()
-client_heater.username_pw_set(HEATER_ACCESS_TOKEN)
-client_heater.connect(THINGSBOARD_HOST,1883,60)
-client_heater.loop_start()
-# mqtt client for washing_machine
-client_washing_machine = mqtt.Client()
-client_washing_machine.username_pw_set(WASHING_MACHINE_ACCESS_TOKEN)
-client_washing_machine.connect(THINGSBOARD_HOST,1883,60)
-client_washing_machine.loop_start()
-# mqtt client for power_meter
-client_power_meter = mqtt.Client()
-client_power_meter.username_pw_set(POWER_METER_ACCESS_TOKEN)
-client_power_meter.connect(THINGSBOARD_HOST,1883,60)
-client_power_meter.loop_start()
+# mqtt client for street_light
+client_street_light = mqtt.Client()
+client_street_light.username_pw_set(STREET_LIGHT_ACCESS_TOKEN)
+client_street_light.connect(THINGSBOARD_HOST,1883,60)
+client_street_light.loop_start()
+# mqtt client for garbage
+client_garbage = mqtt.Client()
+client_garbage.username_pw_set(GARBAGE_ACCESS_TOKEN)
+client_garbage.connect(THINGSBOARD_HOST,1883,60)
+client_garbage.loop_start()
+# mqtt client for traffic_light
+client_traffic_light = mqtt.Client()
+client_traffic_light.username_pw_set(TRAFFIC_LIGHT_ACCESS_TOKEN)
+client_traffic_light.connect(THINGSBOARD_HOST,1883,60)
+client_traffic_light.loop_start()
 
 MQTT_DICT = {
-    "lamp": client_lamp,
-    "heater": client_heater,
-    "washing_machine": client_washing_machine,
-    "power_meter": client_power_meter
+    "street_light": client_street_light,
+    "garbage": client_garbage,
+    "traffic_light": client_traffic_light
 }
 
 # Function to read sensor values, get state or power consumption
@@ -103,11 +95,9 @@ try:
 except KeyboardInterrupt:
     pass
 
-client_lamp.loop_stop()
-client_lamp.disconnect()
-client_heater.loop_stop()
-client_heater.disconnect()
-client_washing_machine.loop_stop()
-client_washing_machine.disconnect()
-client_power_meter.loop_stop()
-client_power_meter.disconnect()
+client_street_light.loop_stop()
+client_street_light.disconnect()
+client_garbage.loop_stop()
+client_garbage.disconnect()
+client_traffic_light.loop_stop()
+client_traffic_light.disconnect()
