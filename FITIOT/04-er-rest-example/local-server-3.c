@@ -40,25 +40,25 @@ void *refrigerator(void *vargp) {
 
 void parser(char* buffer, char* buffer_to_send, int read_size){
     if(!strncmp(buffer, "get/refrigerator", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_refrigerator());
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_Refrigerator());
     }else if (!strncmp(buffer, "consumption/refrigerator", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_refrigerator_consumption());
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_Refrigerator_consumption());
     }else if (!strncmp(buffer, "state/refrigerator", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%s", get_refrigerator_state());
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%s", get_Refrigerator_state());
     }else if(!strncmp(buffer, "get/dryer", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_temperature());
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_DryerMachine());
     }else if (!strncmp(buffer, "consumption/dryer", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_dryer_consumption());
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_DryerMachine_consumption());
     }else if (!strncmp(buffer, "state/dryer", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%s", get_dryer_state());
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%s", get_DryerMachine_state());
     }else if(!strncmp(buffer, "get/garage", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_lux(1));
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_garage(1));
     }else if (!strncmp(buffer, "consumption/garage", read_size)){
         snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_garage_consumption());
     }else if (!strncmp(buffer, "state/garage", read_size)){
         snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%s", get_garage_state());
     }else if (!strncmp(buffer, "get/power_meter", read_size)){
-        float consumpt = get_dryer_consumption() + get_garage_consumption() + get_refrigerator_consumption();
+        float consumpt = get_DryerMachine_consumption() + get_garage_consumption() + get_Refrigerator_consumption();
         snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", consumpt);
     }else if (!strncmp(buffer, "consumption/power_meter", read_size)){
         snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", 0);

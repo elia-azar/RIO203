@@ -46,19 +46,19 @@ void parser(char* buffer, char* buffer_to_send, int read_size){
     }else if (!strncmp(buffer, "state/stereo", read_size)){
         snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%s", get_stereo_state());
     }else if(!strncmp(buffer, "get/tv", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_temperature());
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_TV());
     }else if (!strncmp(buffer, "consumption/tv", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_tv_consumption());
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_TV_consumption());
     }else if (!strncmp(buffer, "state/tv", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%s", get_tv_state());
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%s", get_TV_state());
     }else if(!strncmp(buffer, "get/fan", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_lux(1));
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_Fan());
     }else if (!strncmp(buffer, "consumption/fan", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_fan_consumption());
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_Fan_consumption());
     }else if (!strncmp(buffer, "state/fan", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%s", get_fan_state());
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%s", get_Fan_state());
     }else if (!strncmp(buffer, "get/power_meter", read_size)){
-        float consumpt = get_tv_consumption() + get_fan_consumption() + get_stereo_consumption();
+        float consumpt = get_TV_consumption() + get_Fan_consumption() + get_stereo_consumption();
         snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", consumpt);
     }else if (!strncmp(buffer, "consumption/power_meter", read_size)){
         snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", 0);

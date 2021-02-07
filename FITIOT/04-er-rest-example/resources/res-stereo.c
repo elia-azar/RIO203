@@ -9,14 +9,13 @@ float stereo_consumption = 0;
 float stereo_on_Consumption = 40;
 float stereo_off_Consumption = 0;
 
-srand(time(0));
 
-int random_number(){
+int random_number_stereo(){
     return rand() % 101;
 }
 
 void initialize_stereo(){
-    if(random_number() > 97){
+    if(random_number_stereo() > 97){
         change_stereo_state(1);
     }else{
         change_stereo_state(0);
@@ -49,8 +48,9 @@ float get_stereo(){
 }
 
 void *stereoThread(void *vargp){
+    srand(time(0));
     while(1){
-        if(random_number() > 97){
+        if(random_number_stereo() > 97){
             change_stereo_state(1);
         }else{
             change_stereo_state(0);

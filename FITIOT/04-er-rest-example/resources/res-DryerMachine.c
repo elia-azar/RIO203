@@ -4,15 +4,12 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-
-srand(time(0));
-
-int random_number(){
+int random_number_dryer(){
     return rand() % 337;
 } 
 
 void initialize_dryer(){
-    if(random_number() > 330){
+    if(random_number_dryer() > 330){
         change_DryerMachine_state(1);
     }else{
         change_DryerMachine_state(0);
@@ -50,8 +47,9 @@ float get_DryerMachine(){
 }
 
 void *dryerThread(void *vargp){
+    srand(time(0));
     while(1){
-        if(random_number() > 330){
+        if(random_number_dryer() > 330){
             change_DryerMachine_state(1);
         }else{
             change_DryerMachine_state(0);

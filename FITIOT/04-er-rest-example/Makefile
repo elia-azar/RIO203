@@ -8,13 +8,15 @@
 
 # Here is a simple Make Macro.
 
-LINK_TARGET = local-server
+LINK_TARGET = local-server local-server-2 local-server-3
 
 # Here is a Make Macro that uses the backslash to extend to multiple lines.
 # This allows quick modification of more object files.
 
 OBJS = \
-	local-server.o resources/temperature.o resources/lamp.o resources/res-washing-machine.o
+	local-server.o local-server-2 local-server-3 resources/temperature.o resources/lamp.o \
+	resources/res-washing-machine.o resources/res-TV.o resources/res-DryerMachine.o \
+	resources/res-Refrigerator.o resources/res-Fan.o resources/res-garage.o resources/res-stereo.o
 	
 # Here is a Make Macro defined by two Macro Expansions.
 # A Macro Expansion may be treated as a textual replacement of the Make Macro.
@@ -54,6 +56,12 @@ clean:
 # $^ expands to the rule's dependencies
 #$(LINK_TARGET) : $(OBJS)
 local-server : local-server.o resources/temperature.o resources/lamp.o resources/res-washing-machine.o
+	gcc -g3  -o  $@ $^ -lpcap -lpthread
+
+local-server-2 : local-server-2.o resources/res-stereo.o resources/res-TV.o resources/res-Fan.o
+	gcc -g3  -o  $@ $^ -lpcap -lpthread
+
+local-server-3 : local-server-3.o resources/res-Refrigerator.o resources/res-DryerMachine.o resources/res-garage.o
 	gcc -g3  -o  $@ $^ -lpcap -lpthread
 
 # Here is a Pattern Rule, often used for compile-line.

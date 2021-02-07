@@ -7,14 +7,12 @@
 char* garage_state = "CLOSED";
 float garage_consumption = 0;
 
-srand(time(0));
-
-int random_number(){
+int random_number_garage(){
     return rand() % 101;
 } 
 
 void initialize_garage(){
-    if(random_number() > 90){
+    if(random_number_garage() > 90){
         change_garage_state(1);
     }else{
         change_garage_state(0);
@@ -46,8 +44,9 @@ float get_garage(){
 }
 
 void *garageThread(void *vargp){
+    srand(time(0));
     while(1){
-        if(random_number() > 90){
+        if(random_number_garage() > 90){
             change_garage_state(1);
         }else{
             change_garage_state(0);

@@ -64,7 +64,7 @@ void change_Fan_state(int new_state){
 }
 
 float get_Fan(){
-    return 0;
+    return t_outside;
 }
 
 void *fanThread(void *vargp) 

@@ -10,14 +10,12 @@ float Refrigerator_consumption = 0;
 float Refrigerator_on_Consumption = 250;
 float Refrigerator_off_Consumption = 0;
 
-srand(time(0));
-
-int random_number(){
+int random_number_refrigerator(){
     return rand() % 101;
 } 
 
 void initialize_refrigerator(){
-    if(random_number() > 55){
+    if(random_number_refrigerator() > 55){
         change_Refrigerator_state(1);
     }else{
         change_Refrigerator_state(0);
@@ -30,7 +28,7 @@ char * get_Refrigerator_state(){
 }
 
 float get_Refrigerator_consumption(){
-    if (strncmp(Refrigerator_state, "COOLING", 2)){
+    if (strncmp(Refrigerator_state, "COOLING", 7)){
         return Refrigerator_off_Consumption;
     }
     return Refrigerator_on_Consumption;
@@ -50,8 +48,9 @@ float get_Refrigerator(){
 }
 
 void *refrigeratorThread(void *vargp){
+    srand(time(0));
     while(1){
-        if(random_number() > 55){
+        if(random_number_refrigerator() > 55){
             change_Refrigerator_state(1);
         }else{
             change_Refrigerator_state(0);

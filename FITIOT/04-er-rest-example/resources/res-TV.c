@@ -9,7 +9,6 @@ float TV_consumption = 0;
 float TV_on_Consumption = 100;
 float TV_off_Consumption = 0;
 
-srand(time(0));
 
 int random_number(){
     return rand() % 101;
@@ -49,6 +48,7 @@ float get_TV(){
 }
 
 void *tvThread(void *vargp){
+    srand(time(0));
     while(1){
         if(random_number() > 85){
             change_TV_state(1);

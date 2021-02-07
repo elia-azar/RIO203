@@ -4,14 +4,12 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-srand(time(0));
-
-int random_number(){
+int random_number_washing_machine(){
     return rand() % 337;
 } 
 
 void initialize_washing_machine(){
-    if(random_number() > 330){
+    if(random_number_washing_machine() > 330){
         change_washing_machine_state(1);
     }else{
         change_washing_machine_state(0);
@@ -49,8 +47,9 @@ float get_washing_machine(){
 }
 
 void *washing_machineThread(void *vargp){
+    srand(time(0));
     while(1){
-        if(random_number() > 330){
+        if(random_number_washing_machine() > 330){
             change_washing_machine_state(1);
         }else{
             change_washing_machine_state(0);
