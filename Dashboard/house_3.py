@@ -8,7 +8,7 @@ import _thread
 CENTRALE_HOST = ''
 CENTRALE_PORT = 65432
 
-HOUSE_ID = 1
+HOUSE_ID = 3
 
 ACTIONS = ["get", "state", "consumption"]
 

@@ -121,7 +121,7 @@ def multi_threaded_client(connection):
         # Get the value of the sensor by sending a request
         if action == 'get':
             # Build the request and send it, then receive the response
-            request = sensor
+            request = 'get/' + sensor
             s.sendall(bytes(request,'utf-8'))
             result = float(repr(s.recv(512).decode('utf-8')))
 
@@ -136,7 +136,7 @@ def multi_threaded_client(connection):
         # Get the consumption of a specific sensor
         elif action == 'consumption':
             # Build the request and send it, then receive the response
-            request = sensor + "/consumption"
+            request =  "consumption/" + sensor
             s.sendall(bytes(request,'utf-8'))
             result = float(repr(s.recv(512).decode('utf-8')))
 
@@ -151,7 +151,7 @@ def multi_threaded_client(connection):
         # Get the consumption of a specific sensor
         elif action == 'state':
             # Build the request and send it, then receive the response
-            request = sensor + "/state"
+            request = "state/" + sensor
             s.sendall(bytes(request,'utf-8'))
             result = repr(s.recv(512).decode('utf-8'))
 

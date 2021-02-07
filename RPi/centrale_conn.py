@@ -86,7 +86,7 @@ if __name__ == "__main__":
     garbage = GarbageBin()
     objects_list = [traffic_light, garbage] #street_light]
     # Start a thread to automatically update the values in the DB in Centrale Node
-    _thread.start_new_thread(update, (objects_list, ))
+    #_thread.start_new_thread(update, (objects_list, ))
     # Multi-thread server that listens to at most 10 clients
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as ServerSideSocket:
         try:

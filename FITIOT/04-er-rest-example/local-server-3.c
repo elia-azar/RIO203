@@ -8,57 +8,57 @@
 #include <unistd.h>
 #include <netdb.h>
 #include <arpa/inet.h>
-#include "resources/res-washing-machine.h"
-#include "resources/temperature.h"
-#include "resources/lamp.h"
+#include "resources/res-Refrigerator.h"
+#include "resources/res-DryerMachine.h"
+#include "resources/res-garage.h"
 
 int REST_MAX_CHUNK_SIZE = 100;
 
-void *lamp(void *vargp){
-    initialize_lamp(1);
+void *garage(void *vargp){
+    initialize_garage(1);
     pthread_t thread_id; 
-    pthread_create(&thread_id, NULL, lampThread, NULL); 
+    pthread_create(&thread_id, NULL, garageThread, NULL); 
     pthread_join(thread_id, NULL);
     return;
 }
 
-void *heater(void *vargp) {
-    initialize_heater();
+void *dryer(void *vargp) {
+    initialize_dryer();
     pthread_t thread_id; 
-    pthread_create(&thread_id, NULL, heaterThread, NULL); 
+    pthread_create(&thread_id, NULL, dryerThread, NULL); 
     pthread_join(thread_id, NULL);
     return;
 }
 
-void *washing_machine(void *vargp) {
-    initialize_washing_machine();
+void *refrigerator(void *vargp) {
+    initialize_refrigerator();
     pthread_t thread_id; 
-    pthread_create(&thread_id, NULL, washing_machineThread, NULL); 
+    pthread_create(&thread_id, NULL, refrigeratorThread, NULL); 
     pthread_join(thread_id, NULL);
     return;
 }
 
 void parser(char* buffer, char* buffer_to_send, int read_size){
-    if(!strncmp(buffer, "get/washing_machine", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_washing_machine());
-    }else if (!strncmp(buffer, "consumption/washing_machine", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_washing_machine_consumption());
-    }else if (!strncmp(buffer, "state/washing_machine", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%s", get_washing_machine_state());
-    }else if(!strncmp(buffer, "get/heater", read_size)){
+    if(!strncmp(buffer, "get/refrigerator", read_size)){
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_refrigerator());
+    }else if (!strncmp(buffer, "consumption/refrigerator", read_size)){
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_refrigerator_consumption());
+    }else if (!strncmp(buffer, "state/refrigerator", read_size)){
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%s", get_refrigerator_state());
+    }else if(!strncmp(buffer, "get/dryer", read_size)){
         snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_temperature());
-    }else if (!strncmp(buffer, "consumption/heater", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_heater_consumption());
-    }else if (!strncmp(buffer, "state/heater", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%s", get_heater_state());
-    }else if(!strncmp(buffer, "get/lamp", read_size)){
+    }else if (!strncmp(buffer, "consumption/dryer", read_size)){
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_dryer_consumption());
+    }else if (!strncmp(buffer, "state/dryer", read_size)){
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%s", get_dryer_state());
+    }else if(!strncmp(buffer, "get/garage", read_size)){
         snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_lux(1));
-    }else if (!strncmp(buffer, "consumption/lamp", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_lamp_consumption());
-    }else if (!strncmp(buffer, "state/lamp", read_size)){
-        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%s", get_lamp_state());
+    }else if (!strncmp(buffer, "consumption/garage", read_size)){
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", get_garage_consumption());
+    }else if (!strncmp(buffer, "state/garage", read_size)){
+        snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%s", get_garage_state());
     }else if (!strncmp(buffer, "get/power_meter", read_size)){
-        float consumpt = get_heater_consumption() + get_lamp_consumption() + get_washing_machine_consumption();
+        float consumpt = get_dryer_consumption() + get_garage_consumption() + get_refrigerator_consumption();
         snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", consumpt);
     }else if (!strncmp(buffer, "consumption/power_meter", read_size)){
         snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "%f", 0);
@@ -66,8 +66,8 @@ void parser(char* buffer, char* buffer_to_send, int read_size){
         snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "ON");
     }else if(!strncmp(buffer, "everything", read_size)){
         /*char *answer = ;
-        sprintf("washing-machine_value:%f_consumption:%f_state:%s||heater\
-        _value:%f_consumption:%f_state:%s||lamp_value:%f_consumption:%f_state:%s\
+        sprintf("washing-machine_value:%f_consumption:%f_state:%s||dryer\
+        _value:%f_consumption:%f_state:%s||garage_value:%f_consumption:%f_state:%s\
         power_meter_value:%f\n",);*/
     }else{
         snprintf((char*)buffer_to_send, REST_MAX_CHUNK_SIZE, "Bad Request");
@@ -106,17 +106,17 @@ void *connection_handler(void *socket_desc)
 
 int main(){
     //Create Objects
-    pthread_t thread_lamp; 
-    pthread_create(&thread_lamp, NULL, lamp, NULL); 
-    pthread_t thread_heater; 
-    pthread_create(&thread_heater, NULL, heater, NULL); 
-    pthread_t thread_washing_machine; 
-    pthread_create(&thread_washing_machine, NULL, washing_machine, NULL);
+    pthread_t thread_garage; 
+    pthread_create(&thread_garage, NULL, garage, NULL); 
+    pthread_t thread_dryer; 
+    pthread_create(&thread_dryer, NULL, dryer, NULL); 
+    pthread_t thread_refrigerator; 
+    pthread_create(&thread_refrigerator, NULL, refrigerator, NULL);
 
     // Run the server
     int sockfd, c, read_size, client_sock; 
     char buffer[100];
-    int port=8877;
+    int port=8899;
     struct sockaddr_in servaddr, cliaddr;
 
     // Creating socket file descriptor 

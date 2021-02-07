@@ -13,6 +13,9 @@
         "stdbool.h": "c",
         "pthread.h": "c",
         "res-washing-machine.h": "c",
-        "extern_var.h": "c"
+        "extern_var.h": "c",
+        "res-stereo.h": "c",
+        "res-fan.h": "c",
+        "res-refrigerator.h": "c"
     }
 }
