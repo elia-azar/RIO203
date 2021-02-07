@@ -17,6 +17,7 @@
         "res-stereo.h": "c",
         "res-fan.h": "c",
         "res-refrigerator.h": "c",
-        "res-tv.h": "c"
+        "res-tv.h": "c",
+        "res-garage.h": "c"
     }
 }

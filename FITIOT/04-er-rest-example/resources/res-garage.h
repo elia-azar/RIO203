@@ -4,3 +4,5 @@ float get_garage();
 char * get_garage_state();
 float get_garage_consumption();
 void change_garage_state(int new_state);
+void initialize_garage();
+void *garageThread(void *vargp);
