@@ -28,7 +28,7 @@ TRAFFIC_LIGHT_ACCESS_TOKEN = "vNq8XLUY2F2zaIvoi9px"
 
 
 
-INTERVAL = 5
+INTERVAL = 60
 sensor_data = {}
 next_reading = time.time()
 

@@ -30,7 +30,7 @@ REFRIGERATOR_ACCESS_TOKEN = "6WLF5NGE8nDGSyK6NlFV"
 
 
 
-INTERVAL = 5
+INTERVAL = 60
 sensor_data = {}
 next_reading = time.time()
 

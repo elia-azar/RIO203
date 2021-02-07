@@ -30,7 +30,7 @@ WASHING_MACHINE_ACCESS_TOKEN = "djaHtlZc40iDzisv9mCC"
 
 
 
-INTERVAL = 20
+INTERVAL = 60
 sensor_data = {}
 next_reading = time.time()
 

@@ -30,7 +30,7 @@ STEREO_ACCESS_TOKEN = "cydl1MmnAbcZ0JhNOFut"
 
 
 
-INTERVAL = 5
+INTERVAL = 60
 sensor_data = {}
 next_reading = time.time()
 
