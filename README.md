@@ -41,7 +41,7 @@ home_3# cd RIO203/FITIOT/04-er-rest-example
 home_3# sudo ./local-server-3
 ```
 Now, the 3 smart homes are up and running, and can answer to requests.
-It should be noted that @@ pseudo-sensors@@ were used due to the encountered problem with FitIoT.
+It should be noted that **pseudo-sensors** were used due to the encountered problem with FitIoT.
 
 ## RPi
 Smart city applications are emulated by using a RPi connected to several sensors via a breadboard. The following is a list of the connected objects:
@@ -50,7 +50,7 @@ Smart city applications are emulated by using a RPi connected to several sensors
 * Street light: A photoresistor and a dual-core led were used.
 * Garbage bin: An ultrasonic sensor was used.
 
-Before running a socket server on the RPi and grant access to the sensors, you should modify the @@ CENTRALE_HOST@@ variable in RPi/centrale_conn.py and put the ipv4 address of the machine that is going to run centrale_b.py.
+Before running a socket server on the RPi and grant access to the sensors, you should modify the **CENTRALE_HOST** variable in RPi/centrale_conn.py and put the ipv4 address of the machine that is going to run centrale_b.py.
 
 Once the script modified, run the following in order to grant access to the sensors over the internet:
 
