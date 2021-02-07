@@ -1,9 +1,7 @@
-import subprocess
 import socket
 import _thread
 import psycopg2
 from datetime import datetime
-import time
 
 HOST = '' # Server IP address
 PORT = 65432       # Server PORT
@@ -123,14 +121,14 @@ def multi_threaded_client(connection):
             # Build the request and send it, then receive the response
             request = 'get/' + sensor
             s.sendall(bytes(request,'utf-8'))
-            result = float(repr(s.recv(512).decode('utf-8')))
+            result = float(s.recv(512).decode('utf-8'))
 
             # Updating value in the database
             date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-            cur.execute("UPDATE sensors \
+            """cur.execute("UPDATE sensors \
             SET value = {}, \
             time = {} \
-            WHERE home_id = {} AND sensor = {};".format(result, date, home_id, sensor))
+            WHERE home_id = {} AND sensor = {};".format(result, date, home_id, sensor))"""
             result = [result, date]
 
         # Get the consumption of a specific sensor
@@ -138,14 +136,14 @@ def multi_threaded_client(connection):
             # Build the request and send it, then receive the response
             request =  "consumption/" + sensor
             s.sendall(bytes(request,'utf-8'))
-            result = float(repr(s.recv(512).decode('utf-8')))
+            result = float(s.recv(512).decode('utf-8'))
 
             # Updating consumption in the database
             date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-            cur.execute("UPDATE sensors \
+            """cur.execute("UPDATE sensors \
             SET consumption = {}, \
             time = {} \
-            WHERE home_id = {} AND sensor = {};".format(result, date, home_id, sensor))
+            WHERE home_id = {} AND sensor = {};".format(result, date, home_id, sensor))"""
             result = [result, date]
         
         # Get the consumption of a specific sensor
@@ -153,14 +151,14 @@ def multi_threaded_client(connection):
             # Build the request and send it, then receive the response
             request = "state/" + sensor
             s.sendall(bytes(request,'utf-8'))
-            result = repr(s.recv(512).decode('utf-8'))
+            result = s.recv(512).decode('utf-8')
 
             # Updating state in the database
             date = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-            cur.execute("UPDATE sensors \
+            """cur.execute("UPDATE sensors \
             SET state = {}, \
             time = {} \
-            WHERE home_id = {} AND sensor = {};".format(result, date, home_id, sensor))
+            WHERE home_id = {} AND sensor = {};".format(result, date, home_id, sensor))"""
             result = [result, date]
 
     connection.sendall(str.encode(str(result)))

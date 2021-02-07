@@ -23,10 +23,10 @@ SENSORS = [
 # Thingsboard platform credentials
 THINGSBOARD_HOST = 'demo.thingsboard.io'
 
-FAN_ACCESS_TOKEN = "N8PFRl2uR91Ht3Z6Tt5T"
-TV_ACCESS_TOKEN = "GkUfBsbTmeSUT3ifILPk"
-POWER_METER_ACCESS_TOKEN = "qtTrO2mmLK08svOw7nv1"
-STEREO_ACCESS_TOKEN = "vNq8XLUY2F2zaIvoi9px"
+FAN_ACCESS_TOKEN = "l0o5kANSj6OBmjAOQKYZ"
+TV_ACCESS_TOKEN = "fksMQzFJDBmPxI3cAGI1"
+POWER_METER_ACCESS_TOKEN = "jf3v2wlPjK5T035uSnu6"
+STEREO_ACCESS_TOKEN = "cydl1MmnAbcZ0JhNOFut"
 
 
 
@@ -71,7 +71,7 @@ def get(action, sensor):
         s.sendall(bytes(request, 'utf-8'))
         
         # Receive answer from the centrale node
-        data = repr(s.recv(512).decode('utf-8'))
+        data = s.recv(512).decode('utf-8')
 
         # Parse result
         response = ast.literal_eval(data)
@@ -84,8 +84,8 @@ def run(sensor):
     for action in ACTIONS:
         value, date = get(action, sensor)
         sensor_data  = {
-            action: value,
-            "date": date
+            action+" "+sensor: value,
+            # "date": date
         }
         MQTT_DICT.get(sensor).publish('v1/devices/me/telemetry',json.dumps(sensor_data),1)
     return
@@ -93,7 +93,7 @@ def run(sensor):
 try:
     while True:
         for sensor in SENSORS:
-            _thread.start_new_thread(run, (sensor))
+            _thread.start_new_thread(run, (sensor,))
 
         next_reading += INTERVAL
         sleep_time = next_reading-time.time()

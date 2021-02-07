@@ -63,7 +63,7 @@ def get(action, sensor):
         s.sendall(bytes(request, 'utf-8'))
         
         # Receive answer from the centrale node
-        data = repr(s.recv(512).decode('utf-8'))
+        data = s.recv(512).decode('utf-8')
 
         # Parse result
         response = ast.literal_eval(data)

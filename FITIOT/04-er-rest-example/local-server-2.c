@@ -140,12 +140,12 @@ int main(){
     }
       
     //Listen
-	listen(sockfd , 5);
+	listen(sockfd , 10);
 	
     //Accept and incoming connection
     puts("Waiting for incoming connections...");
     c = sizeof(struct sockaddr_in);
-    pthread_t thread_id[5];
+    pthread_t thread_id[10];
     int i = 0;
     
     //Receive a message from client
@@ -159,7 +159,7 @@ int main(){
             return 1;
         }
         
-        i = (i+1) % 5;
+        i = (i+1) % 10;
          
         //Now join the thread , so that we dont terminate before the thread
         //pthread_join( thread_id , NULL);

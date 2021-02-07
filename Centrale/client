@@ -7,10 +7,59 @@ PORT = 8877        # The port used by the server
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
-    #s.sendall(b'exit')
-    #s.sendall(b'get_from_db/2/1')
-    s.sendall(b'lamp/state')
-    #s.sendall(b'getall/2/1')
+    s.sendall(b'state/lamp')
     data = s.recv(1024)
+print('Received state lamp', repr(data.decode('utf-8')))
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
+    s.sendall(b'state/heater')
+    data = s.recv(1024)
+print('Received state heater', repr(data.decode('utf-8')))
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
+    s.sendall(b'consumption/lamp')
+    data = s.recv(1024)
+print('Received consumtpion lamp', repr(data.decode('utf-8')))
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
+    s.sendall(b'consumption/heater')
+    data = s.recv(1024)
+print('Received consumption heater', repr(data.decode('utf-8')))
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
+    s.sendall(b'state/washing_machine')
+    data = s.recv(1024)
+print('Received state washing-machine ', repr(data.decode('utf-8')))
 
-print('Received', repr(data.decode('utf-8')))
+PORT = 8888        # The port used by the server
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
+    s.sendall(b'state/fan')
+    data = s.recv(1024)
+print('Received state fan', repr(data.decode('utf-8')))
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
+    s.sendall(b'get/fan')
+    data = s.recv(1024)
+print('Received value fan', repr(data.decode('utf-8')))
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
+    s.sendall(b'state/stereo')
+    data = s.recv(1024)
+print('Received state stereo', repr(data.decode('utf-8')))
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
+    s.sendall(b'consumption/fan')
+    data = s.recv(1024)
+print('Received consumtpion fan', repr(data.decode('utf-8')))
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
+    s.sendall(b'consumption/stereo')
+    data = s.recv(1024)
+print('Received consumption stereo', repr(data.decode('utf-8')))
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
+    s.sendall(b'get/power_meter')
+    data = s.recv(1024)
+print('Received value power_meter', repr(data.decode('utf-8')))
