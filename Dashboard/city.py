@@ -76,8 +76,8 @@ def run(sensor):
     for action in ACTIONS:
         value, date = get(action, sensor)
         sensor_data  = {
-            action: value,
-            "date": date
+            action+" "+sensor: value,
+            # "date": date
         }
         MQTT_DICT.get(sensor).publish('v1/devices/me/telemetry',json.dumps(sensor_data),1)
     return
@@ -85,7 +85,7 @@ def run(sensor):
 try:
     while True:
         for sensor in SENSORS:
-            _thread.start_new_thread(run, (sensor))
+            _thread.start_new_thread(run, (sensor,))
 
         next_reading += INTERVAL
         sleep_time = next_reading-time.time()

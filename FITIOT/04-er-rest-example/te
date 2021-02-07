@@ -1,0 +1,149 @@
+Waiting for incoming connections...
+Connection accepted, served by thread: 0
+Handler assigned
+Connection accepted, served by thread: 1
+Handler assigned
+Connection accepted, served by thread: 2
+Handler assigned
+Connection accepted, served by thread: 3
+10, get/heater
+buffer to send: 4.183333
+Handler assigned
+15, get/power_meter
+buffer to send: 7500.000000
+8, get/lamp
+buffer to send: 133.333328
+19, get/washing_machine
+buffer to send: 0.000000
+Connection accepted, served by thread: 4
+Handler assigned
+10, state/lamp
+buffer to send: OFF
+Connection accepted, served by thread: 5
+Handler assigned
+17, state/power_meter
+buffer to send: ON
+Connection accepted, served by thread: 6
+Handler assigned
+Connection accepted, served by thread: 7
+Handler assigned
+Connection accepted, served by thread: 8
+12, state/heater
+buffer to send: ON
+Handler assigned
+21, state/washing_machine
+buffer to send: OFF
+16, consumption/lamp
+buffer to send: 0.000000
+Connection accepted, served by thread: 9
+Handler assigned
+23, consumption/power_meter
+buffer to send: 0.000000
+Connection accepted, served by thread: 0
+Handler assigned
+27, consumption/washing_machine
+buffer to send: 0.000000
+Connection accepted, served by thread: 1
+Handler assigned
+18, consumption/heater
+buffer to send: 7500.000000
+Connection accepted, served by thread: 2
+Handler assigned
+10, get/heater
+buffer to send: 4.183333
+Connection accepted, served by thread: 3
+Handler assigned
+Connection accepted, served by thread: 4
+Handler assigned
+15, get/power_meter
+buffer to send: 7500.000000
+Connection accepted, served by thread: 5
+Handler assigned
+8, get/lamp
+buffer to send: 133.333328
+Client disconnected
+0, 
+buffer to send: 0.000000
+Connection accepted, served by thread: 6
+Handler assigned
+Connection accepted, served by thread: 7
+Handler assigned
+17, state/power_meter
+buffer to send: ON
+12, state/heater
+buffer to send: ON
+Connection accepted, served by thread: 8
+Handler assigned
+10, state/lamp
+buffer to send: OFF
+Connection accepted, served by thread: 9
+Handler assigned
+23, consumption/power_meter
+Connection accepted, served by thread: 0
+Handler assigned
+buffer to send: 0.000000
+18, consumption/heater
+Connection accepted, served by thread: 1
+Handler assigned
+16, consumption/lamp
+buffer to send: 7500.000000
+buffer to send: 0.000000
+Connection accepted, served by thread: 2
+Handler assigned
+15, get/power_meter
+buffer to send: 7500.000000
+Connection accepted, served by thread: 3
+Handler assigned
+Connection accepted, served by thread: 4
+Handler assigned
+Connection accepted, served by thread: 5
+Handler assigned
+10, get/heater
+buffer to send: 4.183333
+19, get/washing_machine
+buffer to send: 0.000000
+Client disconnected
+0, 
+buffer to send: 0.000000
+Connection accepted, served by thread: 6
+Handler assigned
+12, state/heater
+buffer to send: ON
+Connection accepted, served by thread: 7
+Handler assigned
+17, state/power_meter
+buffer to send: ON
+Connection accepted, served by thread: 8
+Handler assigned
+21, state/washing_machine
+buffer to send: OFF
+Connection accepted, served by thread: 9
+Handler assigned
+18, consumption/heater
+buffer to send: 7500.000000
+Connection accepted, served by thread: 0
+Handler assigned
+27, consumption/washing_machine
+buffer to send: 0.000000
+Connection accepted, served by thread: 1
+Handler assigned
+23, consumption/power_meter
+buffer to send: 0.000000
+Connection accepted, served by thread: 2
+Handler assigned
+Connection accepted, served by thread: 3
+Handler assigned
+Connection accepted, served by thread: 4
+19, get/washing_machine
+Handler assigned
+Connection accepted, served by thread: 5
+Handler assigned
+10, get/heater
+buffer to send: 0.000000
+buffer to send: 4.183333
+Client disconnected
+0, 
+buffer to send: 0.000000
+Client disconnected
+0, 
+buffer to send: 0.000000
