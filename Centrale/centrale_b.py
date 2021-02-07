@@ -1,6 +1,6 @@
 import socket
 import _thread
-import psycopg2
+#import psycopg2
 from datetime import datetime
 
 HOST = '' # Server IP address
@@ -29,10 +29,10 @@ RPI_ALLOWED_ACTIONS = ['get', 'consumption', 'state']
 
 
 # Connect to postgres DB
-conn = psycopg2.connect("dbname='postgres' user='postgres' host='127.0.0.1' password='postgres' port='5432'")
+#conn = psycopg2.connect("dbname='postgres' user='postgres' host='127.0.0.1' password='postgres' port='5432'")
 
 # Open a cursor to perform database operations
-cur = conn.cursor()
+# cur = conn.cursor()
 
 # Function that takes a list of objects with their values and updates the DB
 def update_db(obj_list, home_id):
@@ -43,12 +43,12 @@ def update_db(obj_list, home_id):
         state = components[2]
         consumption = components[3]
         date = components[4]
-        cur.execute("UPDATE sensors \
+        """cur.execute("UPDATE sensors \
             SET consumption = {}, \
             time = {}, \
             value = {}, \
             state = {}, \
-            WHERE home_id = {} AND sensor = {};".format(consumption, date, value, state, home_id, sensor))
+            WHERE home_id = {} AND sensor = {};".format(consumption, date, value, state, home_id, sensor))"""
     return
 
 
