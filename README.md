@@ -12,9 +12,7 @@ We consider 4 components in this project:
 The detailed instructions to set up the experiment are defined below.
 
 ## ThingsBoard
-Our dashboard is hosted by https://demo.thingsboard.io. For the login, we use the following credentials: 
-* username: iot.project@hotmail.com
-* password: Sharingiscaring123
+Our dashboard is hosted by https://demo.thingsboard.io. For the login, we use the following credentials: Ask the contributors for credentials.
 
 
 ## FitIoT
