@@ -87,7 +87,9 @@ psql# CREATE TABLE sensors (
 ### RUN the central node
 If you want to run the central node with a DB, the previous step is mandatory. Also, you should uncomment some lines in centrale_b.py to enable the connection between the node and the DB.
 
-Otherwise, just run the following code in the same machine that ran the local-servers code:
+Before running the API, you should modify the **RPI_HOST** variable in Centrale/centrale_b.py and put the ipv4 address of the RPi.
+
+Afterwards, just run the following code in the same machine that ran the local-servers code:
 
 ```
 central# cd RIO203/Centrale

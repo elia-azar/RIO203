@@ -53,7 +53,7 @@ class GarbageBin:
         def run(self):
             while not Destroy[0]:
                 self.update_state()
-                time.sleep(10 * 60)
+                time.sleep(3)
 
         _thread.start_new_thread(run, (self,))
     
@@ -74,6 +74,7 @@ class GarbageBin:
             self.state = states[1]
     
     def get_state(self):
+        self.update_state()
         return self.state
     
     def get_consumption(self):

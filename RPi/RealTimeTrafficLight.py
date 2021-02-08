@@ -58,7 +58,9 @@ class RealTimeTrafficLight:
         return "traffic_light"
     
     def get_value(self):
-        return Obstacle[0]
+        if (Obstacle[0]):
+            return 1
+        return 0
     
     def get_state(self):
         return self.state
