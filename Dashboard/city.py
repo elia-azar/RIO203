@@ -63,11 +63,14 @@ def get(action, sensor):
         s.connect((CENTRALE_HOST, CENTRALE_PORT))
         s.sendall(bytes(request, 'utf-8'))
         
+        print(request)
         # Receive answer from the centrale node
         data = s.recv(512).decode('utf-8')
+        print(data)
 
         # Parse result
         response = ast.literal_eval(data)
+        print('done')
         value = response[0]
         date = response[1]
     
